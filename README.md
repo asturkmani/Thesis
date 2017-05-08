@@ -37,7 +37,8 @@ In essence, this project will attempt to explore three questions:
 3) Finally, are these models able to make plausible inferences over the latent cognitive state of the agent?
 
 
-#References
+# References
+
 George Ainslie. Breakdown of will. Cambridge University Press, 2001.
 
 Dan Ariely and Klaus Wertenbroch. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological science, 13(3):219–224, 2002.
