@@ -144,7 +144,7 @@ def getdata(pv="interval" ,rb="2017-01-01", re="2017-07-01", rk = "activity", rs
     rb="2017-01-01" #yyyy-mm-dd from
     re="2017-07-01" #to
     rtapi_key=key #your (looong) API key generated in the Embed and Data API -> Setup Data API
-    file_name="rescuetime_data-ac-min" #the name of the file where the data will be downloaded
+    file_name="data/rescuetime_data-ac-min" #the name of the file where the data will be downloaded
     # get the file
     urllib.request.urlretrieve("https://www.rescuetime.com/anapi/data/?pv="+pv+"&rk="+rk+"&rs="+rs+"&rb="+rb+"&re="+re+"&format="+format+"&rtapi_key="+rtapi_key+"", file_name+".csv")
 
