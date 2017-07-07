@@ -40,6 +40,11 @@ class Clean_DF(object):
         self.pca = PCA(n_components=explained_variance)
         self.pca_data = self.pca.fit_transform(data_np)
 
+    def get_day_time(self):
+        # Create Day and Time fields
+        self.clean_df['Day'] = self.clean_df['Date'].map(lambda p: p.split('T')[0])
+        self.clean_df['Time'] = self.clean_df['Date'].map(lambda p: p.split('T')[1])
+        
     def clean_data(self, time_percentage=0.9):
         # Normalize time spent across 300 second block
         # Get popular activities
