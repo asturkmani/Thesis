@@ -34,9 +34,12 @@ class Clean_DF(object):
         self.app_time = []
         self.dirty_df = df
         self.clean_df = self.dirty_df
+        self.activity_vector = []
+        self.pca_data = []
         
     def get_pca(self, explained_variance=0.9):
-        data_np = np.array(self.clean_df['Activity Vector'].tolist())
+        data_np = np.asarray(self.clean_df['Activity Vector'].tolist())
+        self.activity_vector = data_np
         self.pca = PCA(n_components=explained_variance)
         self.pca_data = self.pca.fit_transform(data_np)
 
