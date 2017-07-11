@@ -37,10 +37,10 @@ class Clean_DF(object):
         self.activity_vector = []
         self.pca_data = []
         
-    def get_pca(self, explained_variance=0.9):
+    def get_pca(self, explained_variance=0.9, whiten=True):
         data_np = np.asarray(self.clean_df['Activity Vector'].tolist())
         self.activity_vector = data_np
-        self.pca = PCA(n_components=explained_variance)
+        self.pca = PCA(n_components=explained_variance, whiten=whiten)
         self.pca_data = self.pca.fit_transform(data_np)
 
     def get_day_time(self):
@@ -139,7 +139,7 @@ class Clean_DF(object):
 
 import urllib
 
-def getdata(pv="interval" ,rb="2017-01-01", re="2017-07-01", rk = "activity", rs="minute"):
+def getdata(key, pv="interval" ,rb="2017-01-01", re="2017-07-10", rk = "activity", rs="minute"):
     pv="interval" 
     rk = "activity" 
     format = "csv" 
