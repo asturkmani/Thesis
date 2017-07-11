@@ -21,7 +21,6 @@ import pandas as pd
 import numpy as np
 import bisect
 from sklearn.decomposition import PCA, KernelPCA
-import seaborn as sns
 
 class Clean_DF(object):
     
