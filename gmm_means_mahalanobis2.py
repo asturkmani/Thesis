@@ -16,15 +16,15 @@
     solution: Only split if subclusters are more gaussian and above min_size threshold
 
 '''
-from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import scale
 from scipy.stats import anderson
 import numpy as np
 from sklearn.decomposition import PCA
 from scipy.spatial.distance import cdist
 
-class GMeans(object):
-    def __init__(self, critical_value = 1.159, verbose=0, center_init='pca', recalculate_points = True, max_iter=50, min_cluster_size=200):
+class GMMMeans(object):
+    def __init__(self, critical_value = 1.159, verbose=0, center_init='pca', recalculate_points = True, max_iter=50,min_cluster_size=200):
         self.max_iter = max_iter
         self.critical_value = critical_value
         self.verbose = verbose
@@ -61,12 +61,12 @@ class GMeans(object):
         
         if(self.center_init=='pca'):
             init_centers = self.pca_sub_centers(X, center)
-            kmeans = KMeans(n_clusters=2, init = init_centers)
+            gmm = GaussianMixture(n_components=2, means_init = init_centers)
         else:
-            kmeans = KMeans(n_clusters=2)
+            gmm = GaussianMixture(n_components=2)
             
-        kmeans.fit(X)
-        sub_centers = kmeans.cluster_centers_
+        gmm.fit(X)
+        sub_centers = gmm.means_
         
         v = sub_centers[0] - sub_centers[1]
         xprime = np.dot(X,v)/np.dot(v,v)
@@ -74,16 +74,16 @@ class GMeans(object):
         
         A2 = anderson(xprime)
         n = len(X)
-        A2 = A2.statistic*(1 + 4/n + 25/pow(n,2))
+        A2 = A2.statistic*(1 + 4/n - 25/pow(n,2))
         
         result = {}
         result['A2'] = A2
         result['sub_centers'] = sub_centers
-        result['labels'] = kmeans.labels_
+        result['labels'] = gmm.predict(X)
         return result
     
     def anderson_test(self, X, center):  
-        
+    
         if (self.recalculate_points):
             M = np.mean(X, axis=0)
             V = np.cov(X, rowvar=0)
@@ -123,11 +123,11 @@ class GMeans(object):
         #self.min_n =len(D)/self.max_clusters
         self.D = D
 
-        kmeans = KMeans(n_clusters=1)
-        kmeans.fit(D)
+        gmm = GaussianMixture(n_components=1)
+        gmm.fit(D)
         
-        first_cluster = kmeans.cluster_centers_
-        labels = kmeans.labels_
+        first_cluster = gmm.means_
+        labels = gmm.predict(self.D)
         
         prev_number_temp_clusters = 0
         temp_clusters = np.zeros((0, D.shape[1]))
@@ -144,12 +144,13 @@ class GMeans(object):
                 print()
                 print("-------------------------------------")
                 print("Set of clusters to test: ", temp_clusters)
-                
-            kmeans = KMeans(n_clusters=len(temp_clusters), init = temp_clusters)
-            kmeans.fit(D)
+
             
-            refined_clusters = kmeans.cluster_centers_
-            refined_labels = kmeans.labels_
+            gmm = GaussianMixture(n_components=len(temp_clusters), means_init = temp_clusters)
+            gmm.fit(D)
+            
+            refined_clusters = gmm.means_
+            refined_labels = gmm.predict(D)
             
             temp_clusters = np.zeros((0, D.shape[1]))
             
@@ -159,7 +160,7 @@ class GMeans(object):
                 
                 if (len(x_to_test) > self.min_cluster_size):
                     result = self.gaussian_test(x_to_test, center_to_test)
-                    if (result['is_gaussian']):
+                    if (result['is_gaussian'] and len(x_to_test)>5):
                         center_to_test = np.reshape(center_to_test, (1,temp_clusters.shape[1]))
                         self.cluster_centers = np.concatenate((self.cluster_centers,center_to_test))
                     else:
@@ -171,8 +172,9 @@ class GMeans(object):
                                 center = np.reshape(result['centers'][1], (1,temp_clusters.shape[1]))
                                 temp_clusters = np.concatenate((temp_clusters,center))
                     
-        kmeans = KMeans(n_clusters=len(temp_clusters), init = temp_clusters)
-        kmeans.fit(self.D)
-        self.cluster_centers_ = kmeans.cluster_centers_
-        self.labels_ = kmeans.labels_
-   
+    
+        gmm = GaussianMixture(n_components=len(temp_clusters), means_init = temp_clusters)
+        gmm.fit(D)
+        self.cluster_centers_ = gmm.means_
+        self.labels_ = gmm.predict(self.D)
+            
