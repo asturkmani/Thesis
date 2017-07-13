@@ -21,6 +21,7 @@ import pandas as pd
 import numpy as np
 import bisect
 from sklearn.decomposition import PCA, KernelPCA
+from sklearn.preprocessing import scale
 
 class Clean_DF(object):
     
@@ -34,20 +35,25 @@ class Clean_DF(object):
         self.dirty_df = df
         self.clean_df = self.dirty_df
         self.activity_vector = []
+        self.centered_activity_vector = []
         self.pca_data = []
         
-    def get_pca(self, explained_variance=0.9, whiten=True):
-        data_np = np.asarray(self.clean_df['Activity Vector'].tolist())
-        self.activity_vector = data_np
+    def get_pca(self, explained_variance=0.9, whiten=True, center=True):
+        self.activity_vector = np.asarray(self.clean_df['Activity Vector'].tolist())
+        self.centered_activity_vector = scale(data_np, with_std=False)
         self.pca = PCA(n_components=explained_variance, whiten=whiten)
-        self.pca_data = self.pca.fit_transform(data_np)
+        
+        if (center):
+            self.pca_data = self.pca.fit_transform(self.centered_activity_vector)
+        else:
+            self.pca_data = self.pca.fit_transform(self.activity_vector)
 
     def get_day_time(self):
         # Create Day and Time fields
         self.clean_df['Day'] = self.clean_df['Date'].map(lambda p: p.split('T')[0])
         self.clean_df['Time'] = self.clean_df['Date'].map(lambda p: p.split('T')[1])
         
-    def clean_data(self, time_percentage=0.9):
+    def clean_data(self, time_percentage=0.9, standardize=True):
         # Normalize time spent across 300 second block
         # Get popular activities
         df_temp = pd.concat([self.dirty_df['Activity'], self.dirty_df['Time Spent (seconds)']], axis=1, keys =['Activity', 'Time Spent (seconds)'])
