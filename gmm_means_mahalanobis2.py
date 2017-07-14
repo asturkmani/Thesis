@@ -33,6 +33,7 @@ class GMMMeans(object):
         self.min_cluster_size = min_cluster_size
         self.cluster_centers_ = []
         self.labels_ = []
+        self.anderson_scores = []
       
 
     # Find all points in the dataset that are within a Mahalonobis distance of 2 (or 2 stds in the univariate case)
@@ -67,6 +68,7 @@ class GMMMeans(object):
             
         gmm.fit(X)
         sub_centers = gmm.means_
+        print("found sub centers", sub_centers)
         
         v = sub_centers[0] - sub_centers[1]
         xprime = np.dot(X,v)/np.dot(v,v)
@@ -74,7 +76,7 @@ class GMMMeans(object):
         
         A2 = anderson(xprime)
         n = len(X)
-        A2 = A2.statistic*(1 + 4/n - 25/pow(n,2))
+        A2 = A2.statistic*(1 + 4/n + 25/pow(n,2))
         
         result = {}
         result['A2'] = A2
@@ -114,9 +116,11 @@ class GMMMeans(object):
         if(A2 < self.critical_value): # Accept null hypothesis, data is sampled from a Gaussian
             result['is_gaussian'] = True
             result['centers'] = center
+            result['A2'] = A2
         else:
             result['is_gaussian'] = False
             result['centers'] = sub_centers
+            result['A2'] = A2
         return result
         
     def fit(self, D):
@@ -134,9 +138,9 @@ class GMMMeans(object):
         temp_clusters = np.concatenate((temp_clusters,first_cluster))
         self.cluster_centers = np.zeros((0, D.shape[1]))
         
-        i=0
-        while (len(temp_clusters) > prev_number_temp_clusters and i <self.max_iter):
-            i +=1
+        idx=0
+        while (len(temp_clusters) > prev_number_temp_clusters and idx <self.max_iter):
+            idx += 1
             prev_number_temp_clusters = len(temp_clusters)
             
             if (self.verbose):
@@ -153,18 +157,25 @@ class GMMMeans(object):
             refined_labels = gmm.predict(D)
             
             temp_clusters = np.zeros((0, D.shape[1]))
-            
+            self.anderson_scores = []
+           
             for i in range(0,len(refined_clusters)):
                 center_to_test = refined_clusters[i]
                 x_to_test = self.D[refined_labels==i]
                 
                 if (len(x_to_test) > self.min_cluster_size):
+                    
                     result = self.gaussian_test(x_to_test, center_to_test)
+                    
                     if (result['is_gaussian'] and len(x_to_test)>5):
+                        
                         center_to_test = np.reshape(center_to_test, (1,temp_clusters.shape[1]))
                         self.cluster_centers = np.concatenate((self.cluster_centers,center_to_test))
+                        self.anderson.append(result['A2'])
+
                     else:
                         if (len(result['centers']) > 0):
+                            print("APPENDING: ", result['centers'])
                             if ~(np.round(result['centers'][0]) in np.round(self.cluster_centers)):
                                 center = np.reshape(result['centers'][0], (1,temp_clusters.shape[1]))
                                 temp_clusters = np.concatenate((temp_clusters,center))

@@ -40,7 +40,7 @@ class Clean_DF(object):
         
     def get_pca(self, explained_variance=0.9, whiten=True, center=True):
         self.activity_vector = np.asarray(self.clean_df['Activity Vector'].tolist())
-        self.centered_activity_vector = scale(data_np, with_std=False)
+        self.centered_activity_vector = scale(self.activity_vector, with_std=False)
         self.pca = PCA(n_components=explained_variance, whiten=whiten)
         
         if (center):

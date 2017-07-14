@@ -134,9 +134,12 @@ class GMeans(object):
         temp_clusters = np.concatenate((temp_clusters,first_cluster))
         self.cluster_centers = np.zeros((0, D.shape[1]))
         
-        i=0
-        while (len(temp_clusters) > prev_number_temp_clusters and i <self.max_iter):
-            i +=1
+        idx=0
+        while (len(temp_clusters) > prev_number_temp_clusters and idx <self.max_iter):
+            idx +=1
+            if (idx > self.max_iter):
+                break
+                
             prev_number_temp_clusters = len(temp_clusters)
             
             if (self.verbose):
