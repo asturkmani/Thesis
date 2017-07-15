@@ -20,6 +20,7 @@ To group entries:
 import pandas as pd
 import numpy as np
 import bisect
+import seaborn as sns
 from sklearn.decomposition import PCA, KernelPCA
 from sklearn.preprocessing import scale
 
