@@ -40,7 +40,6 @@ class Clean_DF(object):
         self.pca_data = []
         
     def get_pca(self, explained_variance=0.9, whiten=True, center=True):
-        self.activity_vector = np.asarray(self.clean_df['Activity Vector'].tolist())
         self.centered_activity_vector = scale(self.activity_vector, with_std=False)
         self.pca = PCA(n_components=explained_variance, whiten=whiten)
         
@@ -54,11 +53,11 @@ class Clean_DF(object):
         self.clean_df['Day'] = self.clean_df['Date'].map(lambda p: p.split('T')[0])
         self.clean_df['Time'] = self.clean_df['Date'].map(lambda p: p.split('T')[1])
         
-    def clean_data(self, time_percentage=0.9, standardize=True):
+    def clean_data(self, time_percentage=0.9, standardize=True, data_cat='Category', add_idle=False):
         # Normalize time spent across 300 second block
         # Get popular activities
-        df_temp = pd.concat([self.dirty_df['Activity'], self.dirty_df['Time Spent (seconds)']], axis=1, keys =['Activity', 'Time Spent (seconds)'])
-
+        
+        df_temp = pd.concat([self.dirty_df[data_cat], self.dirty_df['Time Spent (seconds)']], axis=1, keys =[data_cat, 'Time Spent (seconds)'])
         # get statistics for Apps
         popular = self.get_popular(df=df_temp, time_percentage=time_percentage)
         self.popular_apps = popular['Popular']
@@ -67,10 +66,15 @@ class Clean_DF(object):
 
         
         # Remove unpopular activities and add 'other' to list of activities
-        self.clean_df['Activity'] = self.clean_df['Activity'].map(lambda p : [p] if p in self.popular_apps else ['other'])
-        self.clean_df['Category'] = self.clean_df['Category'].map(lambda p: [p])
+        
+        self.clean_df[data_cat] = self.clean_df[data_cat].map(lambda p : [p] if p in self.popular_apps else ['other'])
+        
+        if (data_cat == 'Activity'):
+            self.clean_df['Category'] = self.clean_df['Category'].map(lambda p: [p])
+            self.clean_df['Productivity'] = self.clean_df['Productivity'].map(lambda p: [p])
+            
         self.clean_df['Time Spent (seconds)'] = self.clean_df['Time Spent (seconds)'].map(lambda p: [p])
-        self.clean_df['Productivity'] = self.clean_df['Productivity'].map(lambda p: [p])
+        
         
         # Merge activities with same time stamp
         self.clean_df = self.clean_df.reset_index().groupby("Date").sum(axis=1)
@@ -81,26 +85,31 @@ class Clean_DF(object):
         self.clean_df['Activity Vector'] = self.clean_df['Activity Vector'].map(lambda p: p[0])
         
         # Add idle time to list of activities
-        self.clean_df['Activity'] = self.clean_df.apply(lambda x: self.add_idle(x), axis=1)
-        self.clean_df['Activity'] = self.clean_df['Activity'].map(lambda p: p[0])
+        if (add_idle):
+            self.clean_df[data_cat] = self.clean_df.apply(lambda x: self.add_idle(x, data_cat), axis=1)
+            self.clean_df[data_cat] = self.clean_df[data_cat].map(lambda p: p[0])
         
+        self.activity_vector = np.asarray(self.clean_df['Activity Vector'].tolist())
         # Create weighted productivity score
-        self.clean_df['Productivity Score'] = self.clean_df.apply(lambda x: self.weighted_prod_score(x), axis=1)
+        if (data_cat == 'Activity'):
+            self.clean_df['Productivity Score'] = self.clean_df.apply(lambda x: self.weighted_prod_score(x), axis=1)
         
-    def get_popular(self, df, time_percentage=1):
-        time_spent_stats = df.groupby('Activity', sort=False).sum().sort_values(by=['Time Spent (seconds)'], ascending=False)
+    def get_popular(self, df, time_percentage=1, data_cat='Category', add_idle=False):
+        time_spent_stats = df.groupby(data_cat, sort=False).sum().sort_values(by=['Time Spent (seconds)'], ascending=False)
         cdf = time_spent_stats.values.cumsum()/time_spent_stats.values.sum()*np.ones(len(time_spent_stats))
         idx = bisect.bisect(cdf, time_percentage)
         total_apps = list(time_spent_stats.to_dict()['Time Spent (seconds)'].keys())
         popular_apps = time_spent_stats[:idx].to_dict()['Time Spent (seconds)']
         popular_apps['other'] = 0
-        popular_apps['idle'] = 0
+        
+        if(add_idle):
+            popular_apps['idle'] = 0
         popular_apps = list(popular_apps.keys())
         
         return {'Popular': popular_apps, 'cdf': cdf, 'idx': idx}
     
-    def add_idle(self, s):
-        activity = s['Activity']
+    def add_idle(self, s, data_cat = 'Category'):
+        activity = s[data_cat]
         idx = self.popular_apps.index('idle')
         if (s['Activity Vector'][idx] > 0):
             activity.append('idle')
@@ -110,17 +119,20 @@ class Clean_DF(object):
         score = np.dot(np.array(s['Time Spent (seconds)'])/sum(s['Time Spent (seconds)']), np.array(s['Productivity'])) 
         return score
         
-    def make_array(self, s):
+    def make_array(self, s, data_cat = 'Category', add_idle=False):
         num = len(self.popular_apps)
         z = np.zeros(num)
         time = s['Time Spent (seconds)']
-        for i, val in enumerate(s['Activity']):
+        for i, val in enumerate(s[data_cat]):
             idx = self.popular_apps.index(val)
             z[idx] = time[i]
-        idx = self.popular_apps.index('idle')
+        
+        if (add_idle):
+            idx = self.popular_apps.index('idle')
         z = z/300
         if (sum(z) < 1.00):
-            z[idx] = 1-sum(z)
+            if (add_idle):
+                z[idx] = 1-sum(z)
         else: #to account for multiple apps running simultaneously
             z = z/sum(z)
         return [z]
@@ -145,15 +157,36 @@ class Clean_DF(object):
 
 import urllib
 
-def getdata(key, pv="interval" ,rb="2017-01-01", re="2017-07-10", rk = "activity", rs="minute"):
-    pv="interval" 
-    rk = "activity" 
+def getdata(key, pv="interval" ,rb="2017-01-01", re="2017-07-18", rk = "activity", rs="minute"):
     format = "csv" 
-    rs="minute" 
-    rb="2017-01-01" #yyyy-mm-dd from
-    re="2017-07-01" #to
     rtapi_key=key #your (looong) API key generated in the Embed and Data API -> Setup Data API
-    file_name="data/rescuetime_data-ac-min" #the name of the file where the data will be downloaded
+    file_name="data/rescuetime_data_" + rk + "_"+ re #the name of the file where the data will be downloaded
     # get the file
     urllib.request.urlretrieve("https://www.rescuetime.com/anapi/data/?pv="+pv+"&rk="+rk+"&rs="+rs+"&rb="+rb+"&re="+re+"&format="+format+"&rtapi_key="+rtapi_key+"", file_name+".csv")
 
+'''
+
+---- Data Preprocessing ---
+
+'''
+
+def split2sequences(data, length_x=1, length_y=1, split=0.8):
+    print('Splitting text into sequences...', "\n",)
+    step = 1
+    xN = []
+    yN = []
+    
+    for i in range(0, len(data) - length_x - 1, step):
+        xN.append(data[i: i + length_x])
+        yN.append(data[i+1:i + length_y + 1])
+        
+    train_size = int(len(xN) * split)
+    test_size = len(xN) - train_size
+    
+    xN = np.array(xN)
+    yN = np.array(yN)
+    n = len(data)
+    X_train, X_test = xN[0:train_size],  xN[train_size:n]
+    Y_train,Y_test = yN[0:train_size], yN[train_size:n]
+
+    return xN, yN, X_train, X_test, Y_train, Y_test
