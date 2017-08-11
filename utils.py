@@ -171,13 +171,6 @@ def getdata(key, pv="interval" ,rb="2017-01-01", re="2017-07-18", rk = "activity
 
 '''
 
-def convert_to_rgb(x):
-    if (x.ndim > 1):
-        c=['rgb'+str(tuple(i)) for i in x.tolist()]
-    else:
-        c = 'rgb'+str(tuple(x))
-    return c
-
 def split2sequences(data, length_x=1, length_y=1, split=0.8):
     print('Splitting text into sequences...', "\n",)
     step = 1
@@ -216,11 +209,18 @@ def make_timeseries_instances(timeseries, window_size):
     q = np.atleast_3d([timeseries[-window_size:]])
     return X, y, q
 
+def convert_to_rgb(x):
+    if (x.ndim > 1):
+        c=['rgb'+str(tuple(i)) for i in x.tolist()]
+    else:
+        c = 'rgb'+str(tuple(x))
+    return c
+
 def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process = False, time_percentage=0.9, explained_variance=0.9):
     filename = 'data.pickle'
     delete_other_idle = False
     if (process):
-        df = pd.read_csv('data/rescuetime_data_category_2017-07-21.csv')
+        df = pd.read_csv('rescuetime_data_category_2017-07-21.csv')
         data = Clean_DF(df)
         data.clean_data(time_percentage=time_percentage)
         data.clean_df = data.clean_df.reset_index()
@@ -268,6 +268,7 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     (Xd,yd,qd) = make_timeseries_instances(timeseries=day_categorical, window_size=window_size)
     (Xt,yt,qt) = make_timeseries_instances(timeseries=time_categorical, window_size=window_size)
     indices = ~np.all(y == 0, axis=1)
+    
     Xc = X[indices, :, :]
     yc = y[indices, :]
     
@@ -282,8 +283,8 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     x_train_c, x_test_c, y_train_c, y_test_c = Xc[:-test_size], Xc[-test_size:], yc[:-test_size], yc[-test_size:]
     Xt = Xt.reshape(Xt.shape[0],Xt.shape[1])
     Xd = Xd.reshape(Xt.shape[0],Xt.shape[1])
-    x_train_t, x_test_t = Xt[:-test_size], Xt[-test_size:]
-    x_train_d, x_test_d = Xd[:-test_size], Xd[-test_size:]
+    x_train_t, x_test_t, y_train_t, y_test_t = Xt[:-test_size], Xt[-test_size:], yt[:-test_size], yt[-test_size:]
+    x_train_d, x_test_d, y_train_d, y_test_d = Xd[:-test_size], Xd[-test_size:], yd[:-test_size], yd[-test_size:]
     
     l_total = int(len(Xc)/batch_size)*batch_size
     l_train = int(len(x_train_c)/batch_size)*batch_size
@@ -291,6 +292,7 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     
     Xc = Xc[:l_total]
     yc = yc[:l_total]
+    
     x_train_c = x_train_c[:l_train]
     x_test_c = x_test_c[:l_test]
     y_train_c = y_train_c[:l_train]
@@ -298,15 +300,18 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     
     x_train_t = x_train_t[:l_train]
     x_test_t = x_test_t[:l_test]
+    y_train_t = y_train_t[:l_train]
+    y_test_t = y_test_t[:l_test]
 
     x_train_d = x_train_d[:l_train]
     x_test_d = x_test_d[:l_test]
+    y_train_d = y_train_d[:l_train]
+    y_test_d = y_test_d[:l_test]
     
     y_train_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_train_c]
     y_test_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_test_c]
     y_labels = [dict(zip(popular_apps, np.round(300*x))) for x in yc]
 
-    
     cmap = {
         'Instant Message' : (255,255,0),
         'Video' : (255,0,0),
@@ -329,22 +334,30 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
                      [127,0,255], [127,255,0], [0,255,127],
                      [128,128,128],[0,200,255], [0,127,255], 
                      [0,0,255], [200,255,0],  [200,200,200]])
-    yc_colors = convert_to_rgb(np.einsum('ij,jk->ik', data_['yc'], cmap))
-    y_train_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', data_['y_train_c'], cmap))
-    y_test_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', data_['y_test_c'], cmap))
+    yc_colors = convert_to_rgb(np.einsum('ij,jk->ik', yc, cmap))
+    y_train_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', y_train_c, cmap))
+    y_test_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', y_test_c, cmap))
     data_colors = convert_to_rgb(cmap)
     
     data_ = {
         'Xc' : Xc,
         'yc' : yc,
+        'Xt' : Xt,
+        'yt' : yt,
+        'Xd' : Xd,
+        'yd' : yd,
         'x_train_c' : x_train_c,
         'x_test_c' : x_test_c,
         'y_train_c' : y_train_c,
         'y_test_c' : y_test_c,
         'x_train_t' : x_train_t,
         'x_test_t' : x_test_t,
+        'y_train_t' : y_train_t,
+        'y_test_t' : y_test_t,
         'x_train_d' : x_train_d,
         'x_test_d' : x_test_d,
+        'y_train_d' : y_train_d,
+        'y_test_d' : y_test_d,
         'popular_apps' : popular_apps,
         'days' : len(set(day_categorical)),
         'time' : len(set(time_categorical)),
@@ -357,6 +370,8 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
         'yc_colors' : yc_colors,
         'y_train_c_colors' : y_train_c_colors,
         'y_test_c_colors' : y_test_c_colors,
-        'data_colors' : data_colors
+        'data_colors' : data_colors,
+        'cmap' : cmap
     }
+    
     return data_
