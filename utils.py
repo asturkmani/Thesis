@@ -23,6 +23,7 @@ import bisect
 import seaborn as sns
 from sklearn.decomposition import PCA, KernelPCA
 from sklearn.preprocessing import scale
+import pickle
 
 class Clean_DF(object):
     
@@ -170,15 +171,22 @@ def getdata(key, pv="interval" ,rb="2017-01-01", re="2017-07-18", rk = "activity
 
 '''
 
+def convert_to_rgb(x):
+    if (x.ndim > 1):
+        c=['rgb'+str(tuple(i)) for i in x.tolist()]
+    else:
+        c = 'rgb'+str(tuple(x))
+    return c
+
 def split2sequences(data, length_x=1, length_y=1, split=0.8):
     print('Splitting text into sequences...', "\n",)
     step = 1
     xN = []
     yN = []
     
-    for i in range(0, len(data) - length_x - 1, step):
+    for i in range(0, len(data) - length_x, step):
         xN.append(data[i: i + length_x])
-        yN.append(data[i+1:i + length_y + 1])
+        yN.append(data[i+1+length_x-length_y:i + length_x + 1])
         
     train_size = int(len(xN) * split)
     test_size = len(xN) - train_size
@@ -190,3 +198,165 @@ def split2sequences(data, length_x=1, length_y=1, split=0.8):
     Y_train,Y_test = yN[0:train_size], yN[train_size:n]
 
     return xN, yN, X_train, X_test, Y_train, Y_test
+
+def make_timeseries_instances(timeseries, window_size):
+    """Make input features and prediction targets from a `timeseries` for use in machine learning.
+    :return: A tuple of `(X, y, q)`.  `X` are the inputs to a predictor, a 3D ndarray with shape
+      ``(timeseries.shape[0] - window_size, window_size, timeseries.shape[1] or 1)``.  For each row of `X`, the
+      corresponding row of `y` is the next value in the timeseries.  The `q` or query is the last instance, what you would use
+      to predict a hypothetical next (unprovided) value in the `timeseries`.
+    :param ndarray timeseries: Either a simple vector, or a matrix of shape ``(timestep, series_num)``, i.e., time is axis 0 (the
+      row) and the series is axis 1 (the column).
+    :param int window_size: The number of samples to use as input prediction features (also called the lag or lookback).
+    """
+    timeseries = np.asarray(timeseries)
+    assert 0 < window_size < timeseries.shape[0]
+    X = np.atleast_3d(np.array([timeseries[start:start + window_size] for start in range(0, timeseries.shape[0] - window_size)]))
+    y = timeseries[window_size:]
+    q = np.atleast_3d([timeseries[-window_size:]])
+    return X, y, q
+
+def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process = False, time_percentage=0.9, explained_variance=0.9):
+    filename = 'data.pickle'
+    delete_other_idle = False
+    if (process):
+        df = pd.read_csv('data/rescuetime_data_category_2017-07-21.csv')
+        data = Clean_DF(df)
+        data.clean_data(time_percentage=time_percentage)
+        data.clean_df = data.clean_df.reset_index()
+        data.get_pca(explained_variance=explained_variance)
+        data.get_day_time()
+
+        with open(filename, 'wb') as f:  # Python 3: open(..., 'wb')
+            pickle.dump(data, f)
+    else:
+        with open(filename, 'rb') as f:  # Python 3: open(..., 'rb')
+            data = pickle.load(f)
+
+    dataset = data.activity_vector
+    popular_apps = data.popular_apps
+
+
+    if (delete_other_idle):
+    # Remove IDLE and OTHER time
+        dataset = np.delete(dataset, [dataset.shape[1]-1,dataset.shape[1]-2], axis=1)
+        del popular_apps[-1]
+        del popular_apps[-1]
+
+
+
+    weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday','Saturday','Sunday']
+
+
+    days = set(data.clean_df['Day'])
+    df = data.clean_df[['Date', 'Activity Vector']]
+    df['timestamp'] = pd.to_datetime(df['Date'])
+    # print(df.dtypes)
+    df = df.set_index('timestamp').resample('300S').asfreq()
+    x = {'val': np.zeros(15)}
+    df['Activity Vector'] = df['Activity Vector'].fillna(x)
+    del df['Date']
+    df['Activity Vector'] = df['Activity Vector'].map(lambda x: np.zeros(len(popular_apps)) if np.isnan(np.sum(x)) else x)
+    df = df.reset_index()
+    dataset = df['Activity Vector']
+    dataset = np.asarray(dataset.tolist())
+
+    day_categorical = np.asarray(df.timestamp.dt.weekday)
+    time_categorical = np.asarray(df.timestamp.dt.time.map(lambda x: int(str(x)[0:2])))
+
+    (X,y,q) = make_timeseries_instances(timeseries=dataset*multiplier, window_size=window_size)
+    (Xd,yd,qd) = make_timeseries_instances(timeseries=day_categorical, window_size=window_size)
+    (Xt,yt,qt) = make_timeseries_instances(timeseries=time_categorical, window_size=window_size)
+    indices = ~np.all(y == 0, axis=1)
+    Xc = X[indices, :, :]
+    yc = y[indices, :]
+    
+    Xd = Xd[indices,:]
+    yd = yd[indices]
+    
+    Xt = Xt[indices,:]
+    yt = yt[indices]
+    
+    
+    test_size = int(val_size * Xc.shape[0])           # In real life you'd want to use 0.2 - 0.5
+    x_train_c, x_test_c, y_train_c, y_test_c = Xc[:-test_size], Xc[-test_size:], yc[:-test_size], yc[-test_size:]
+    Xt = Xt.reshape(Xt.shape[0],Xt.shape[1])
+    Xd = Xd.reshape(Xt.shape[0],Xt.shape[1])
+    x_train_t, x_test_t = Xt[:-test_size], Xt[-test_size:]
+    x_train_d, x_test_d = Xd[:-test_size], Xd[-test_size:]
+    
+    l_total = int(len(Xc)/batch_size)*batch_size
+    l_train = int(len(x_train_c)/batch_size)*batch_size
+    l_test = int(len(x_test_c)/batch_size)*batch_size
+    
+    Xc = Xc[:l_total]
+    yc = yc[:l_total]
+    x_train_c = x_train_c[:l_train]
+    x_test_c = x_test_c[:l_test]
+    y_train_c = y_train_c[:l_train]
+    y_test_c = y_test_c[:l_test]
+    
+    x_train_t = x_train_t[:l_train]
+    x_test_t = x_test_t[:l_test]
+
+    x_train_d = x_train_d[:l_train]
+    x_test_d = x_test_d[:l_test]
+    
+    y_train_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_train_c]
+    y_test_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_test_c]
+    y_labels = [dict(zip(popular_apps, np.round(300*x))) for x in yc]
+
+    
+    cmap = {
+        'Instant Message' : (255,255,0),
+        'Video' : (255,0,0),
+        'General Software Development' : (255,0,200),
+        'General Social Networking' : (255,127,0),
+        'Writing' : (200,0,255),
+        'Browsers' : (0,255,200),
+        'General Reference & Learning' : (127,0,255),
+        'Email' : (127,255,0),
+        'Search' : (0,255,127),
+        'Uncategorized' : (128,128,128),
+        'General News & Opinion' : (0,200,255),
+        'Engineering & Technology' : (0,127,255),
+        'General Business' : (0,0,255),
+        'Voice Chat' : (200,255,0),
+        'other' : (200,200,200)
+    }
+    cmap = np.array([[255,255,0], [255,0,0], [255,0,200], 
+                     [255,127,0], [200,0,255], [0,255,200], 
+                     [127,0,255], [127,255,0], [0,255,127],
+                     [128,128,128],[0,200,255], [0,127,255], 
+                     [0,0,255], [200,255,0],  [200,200,200]])
+    yc_colors = convert_to_rgb(np.einsum('ij,jk->ik', data_['yc'], cmap))
+    y_train_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', data_['y_train_c'], cmap))
+    y_test_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', data_['y_test_c'], cmap))
+    data_colors = convert_to_rgb(cmap)
+    
+    data_ = {
+        'Xc' : Xc,
+        'yc' : yc,
+        'x_train_c' : x_train_c,
+        'x_test_c' : x_test_c,
+        'y_train_c' : y_train_c,
+        'y_test_c' : y_test_c,
+        'x_train_t' : x_train_t,
+        'x_test_t' : x_test_t,
+        'x_train_d' : x_train_d,
+        'x_test_d' : x_test_d,
+        'popular_apps' : popular_apps,
+        'days' : len(set(day_categorical)),
+        'time' : len(set(time_categorical)),
+        'day_categorical' : day_categorical,
+        'time_categorical' : time_categorical,
+        'dataset' : dataset,
+        'y_train_labels' : y_train_labels,
+        'y_test_labels' : y_test_labels,
+        'y_labels' : y_labels,
+        'yc_colors' : yc_colors,
+        'y_train_c_colors' : y_train_c_colors,
+        'y_test_c_colors' : y_test_c_colors,
+        'data_colors' : data_colors
+    }
+    return data_
