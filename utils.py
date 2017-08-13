@@ -192,7 +192,7 @@ def split2sequences(data, length_x=1, length_y=1, split=0.8):
 
     return xN, yN, X_train, X_test, Y_train, Y_test
 
-def make_timeseries_instances(timeseries, window_size):
+def make_timeseries_instances(timeseries, window_size, single_y=False):
     """Make input features and prediction targets from a `timeseries` for use in machine learning.
     :return: A tuple of `(X, y, q)`.  `X` are the inputs to a predictor, a 3D ndarray with shape
       ``(timeseries.shape[0] - window_size, window_size, timeseries.shape[1] or 1)``.  For each row of `X`, the
@@ -216,7 +216,7 @@ def convert_to_rgb(x):
         c = 'rgb'+str(tuple(x))
     return c
 
-def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process = False, time_percentage=0.9, explained_variance=0.9):
+def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, process = False, time_percentage=0.9, explained_variance=0.9):
     filename = 'data.pickle'
     delete_other_idle = False
     if (process):
@@ -267,6 +267,8 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     (X,y,q) = make_timeseries_instances(timeseries=dataset*multiplier, window_size=window_size)
     (Xd,yd,qd) = make_timeseries_instances(timeseries=day_categorical, window_size=window_size)
     (Xt,yt,qt) = make_timeseries_instances(timeseries=time_categorical, window_size=window_size)
+    assert(len(y) == len(yd) == len(yt))
+    print(Xd.shape, yd.shape, Xt.shape, yt.shape)
     indices = ~np.all(y == 0, axis=1)
     
     Xc = X[indices, :, :]
@@ -278,7 +280,6 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     Xt = Xt[indices,:]
     yt = yt[indices]
     
-    
     test_size = int(val_size * Xc.shape[0])           # In real life you'd want to use 0.2 - 0.5
     x_train_c, x_test_c, y_train_c, y_test_c = Xc[:-test_size], Xc[-test_size:], yc[:-test_size], yc[-test_size:]
     Xt = Xt.reshape(Xt.shape[0],Xt.shape[1])
@@ -286,27 +287,32 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
     x_train_t, x_test_t, y_train_t, y_test_t = Xt[:-test_size], Xt[-test_size:], yt[:-test_size], yt[-test_size:]
     x_train_d, x_test_d, y_train_d, y_test_d = Xd[:-test_size], Xd[-test_size:], yd[:-test_size], yd[-test_size:]
     
-    l_total = int(len(Xc)/batch_size)*batch_size
-    l_train = int(len(x_train_c)/batch_size)*batch_size
-    l_test = int(len(x_test_c)/batch_size)*batch_size
-    
-    Xc = Xc[:l_total]
-    yc = yc[:l_total]
-    
-    x_train_c = x_train_c[:l_train]
-    x_test_c = x_test_c[:l_test]
-    y_train_c = y_train_c[:l_train]
-    y_test_c = y_test_c[:l_test]
-    
-    x_train_t = x_train_t[:l_train]
-    x_test_t = x_test_t[:l_test]
-    y_train_t = y_train_t[:l_train]
-    y_test_t = y_test_t[:l_test]
+    if (batch_size > 0):
+        l_total = int(len(Xc)/batch_size)*batch_size
+        l_train = int(len(x_train_c)/batch_size)*batch_size
+        l_test = int(len(x_test_c)/batch_size)*batch_size
 
-    x_train_d = x_train_d[:l_train]
-    x_test_d = x_test_d[:l_test]
-    y_train_d = y_train_d[:l_train]
-    y_test_d = y_test_d[:l_test]
+        Xc = Xc[:l_total]
+        yc = yc[:l_total]
+        Xd = Xd[:l_total]
+        yd = yd[:l_total]
+        Xt = Xt[:l_total]
+        yt = yt[:l_total]
+
+        x_train_c = x_train_c[:l_train]
+        x_test_c = x_test_c[:l_test]
+        y_train_c = y_train_c[:l_train]
+        y_test_c = y_test_c[:l_test]
+
+        x_train_t = x_train_t[:l_train]
+        x_test_t = x_test_t[:l_test]
+        y_train_t = y_train_t[:l_train]
+        y_test_t = y_test_t[:l_test]
+
+        x_train_d = x_train_d[:l_train]
+        x_test_d = x_test_d[:l_test]
+        y_train_d = y_train_d[:l_train]
+        y_test_d = y_test_d[:l_test]
     
     y_train_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_train_c]
     y_test_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_test_c]
@@ -329,15 +335,12 @@ def make_clean_data(window_size,batch_size, val_size=0.2,multiplier=300, process
         'Voice Chat' : (200,255,0),
         'other' : (200,200,200)
     }
-    cmap = np.array([[255,255,0], [255,0,0], [255,0,200], 
-                     [255,127,0], [200,0,255], [0,255,200], 
-                     [127,0,255], [127,255,0], [0,255,127],
-                     [128,128,128],[0,200,255], [0,127,255], 
-                     [0,0,255], [200,255,0],  [200,200,200]])
-    yc_colors = convert_to_rgb(np.einsum('ij,jk->ik', yc, cmap))
-    y_train_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', y_train_c, cmap))
-    y_test_c_colors = convert_to_rgb(np.einsum('ij,jk->ik', y_test_c, cmap))
-    data_colors = convert_to_rgb(cmap)
+    app_colors = ['green','red', 'orange', 'magenta','cerulean', 'yellow', 'light purple', 'turquoise', 'tan', 'grey', 'maroon', 'gold', 'dark green', 'navy blue', 'brown']
+    col_list_palette = sns.xkcd_palette(app_colors)
+    yc_colors = np.einsum('ij,jk->ik', yc, col_list_palette)
+    y_train_c_colors = np.einsum('ij,jk->ik', y_train_c, col_list_palette)
+    y_test_c_colors = np.einsum('ij,jk->ik', y_test_c, col_list_palette)
+    data_colors = col_list_palette
     
     data_ = {
         'Xc' : Xc,

@@ -39,7 +39,8 @@ def build_lstm_c_vae(original_dim,
                    timesteps,
                    batch_size = 20,
                    latent_dim = 2,
-                   intermediate_dim = 32,
+                   lstm_dim = 32,
+                   intermediate_dim = 15,
                    activ='relu',
                    optim=Adam(lr=0.0005),
                    epsilon_std=1.,
@@ -72,8 +73,10 @@ def build_lstm_c_vae(original_dim,
         else:
             inputs = X
     # LSTM encoding
-    h = LSTM(intermediate_dim, activation=activ, name='LSTM_Encoder')(inputs)
-
+    h = LSTM(lstm_dim, activation=activ, name='LSTM_Encoder')(inputs)
+    if (intermediate_dim > 0):
+        h = Dense(intermediate_dim, activation=activ, name='Decoder_H')(h)
+        
     # VAE Z layer
     z_mean = Dense(latent_dim, activation='linear', name='Z_Mean')(h)
     z_log_sigma = Dense(latent_dim, activation='linear', name='Z_log_sigma')(h)
@@ -101,10 +104,15 @@ def build_lstm_c_vae(original_dim,
             zc = z
             
     # decoded LSTM layer
-    decoder_h = LSTM(intermediate_dim, activation=activ, return_sequences=True)
-    decoder_mean = LSTM(input_dim, activation='sigmoid',return_sequences=True)
+    if (intermediate_dim > 0):
+        int_decod = Dense(intermediate_dim, activation=activ)
+    decoder_h = LSTM(lstm_dim, activation=activ, return_sequences=True)
+    decoder_mean = LSTM(input_dim, activation='linear',return_sequences=True)
 
+    if (intermediate_dim > 0):
+        zc = int_decod(zc)   
     h_decoded = RepeatVector(timesteps)(zc)
+    
     h_decoded = decoder_h(h_decoded)
 
     # decoded layer
@@ -112,19 +120,24 @@ def build_lstm_c_vae(original_dim,
     # generator, from latent space to reconstructed inputs
     decoder_input = Input(shape=(latent_dim+time_dim+day_dim,))
 
-    _h_decoded = RepeatVector(timesteps)(decoder_input)
+    if (intermediate_dim > 0):
+        _h_decoded = int_decod(decoder_input)
+        _h_decoded = RepeatVector(timesteps)(_h_decoded)
+    else:
+        _h_decoded = RepeatVector(timesteps)(decoder_input)
+        
     _h_decoded = decoder_h(_h_decoded)
 
     _x_decoded_mean = decoder_mean(_h_decoded)
 
     def vae_loss(x, x_decoded_mean):
-        xent_loss = objectives.binary_crossentropy(x, x_decoded_mean)
+        xent_loss = original_dim * objectives.mse(x, x_decoded_mean)
         kl_loss = - 0.5 * K.mean(1 + z_log_sigma - K.square(z_mean) - K.exp(z_log_sigma))
         loss = xent_loss + kl_loss
         return loss
 
     def recon_loss(x, x_decoded_mean):
-        xent_loss = objectives.binary_crossentropy(x, x_decoded_mean)
+        xent_loss = original_dim * objectives.mse(x, x_decoded_mean)
         return xent_loss
 
     def KL_loss(x, x_decoded_mean):
@@ -160,7 +173,6 @@ def buid_cvae(original_dim,
               batch_size = 20,
               latent_dim = 2,
               intermediate_dim = 10,
-              intermediate_dim2 = 0,
               activ='relu',
               optim=Adam(lr=0.0005),
               epsilon_std=1.,
@@ -176,9 +188,7 @@ def buid_cvae(original_dim,
     m = batch_size # batch size
     n_z = latent_dim # latent space size
     encoder_dim1 = intermediate_dim # dim of encoder hidden layer
-    encoder_dim2 = intermediate_dim2 # dim of encoder hidden layer
     decoder_dim = intermediate_dim # dim of decoder hidden layer
-    decoder_dim2 = intermediate_dim2 # dim of decoder hidden layer
     decoder_out_dim = original_dim # dim of decoder output layer
 
     n_x = original_dim
@@ -207,11 +217,15 @@ def buid_cvae(original_dim,
         else:
             inputs = X
 
-    encoder_h = Dense(encoder_dim1, activation=activ, name='Encoder_H')(inputs)
-    if encoder_dim2 > 0:
-        encoder_h = Dense(encoder_dim2, activation=activ, name='Encoder_H2')(encoder_h)
-    mu = Dense(n_z, activation='linear', name='mu')(encoder_h)
-    l_sigma = Dense(n_z, activation='linear', name='l_sigma')(encoder_h)
+            
+    if (intermediate_dim > 0):
+        encoder_h = Dense(encoder_dim1, activation=activ,  name='Encoder_H')(inputs)
+        mu = Dense(n_z, activation='linear', name='mu')(encoder_h)
+        l_sigma = Dense(n_z, activation='linear', name='l_sigma')(encoder_h)
+    else:
+        mu = Dense(n_z, activation='linear', name='mu')(inputs)
+        l_sigma = Dense(n_z, activation='linear', name='l_sigma')(inputs)
+    
 
 
     # Sampling latent space
@@ -228,17 +242,21 @@ def buid_cvae(original_dim,
         else:
             zc = z
 
-    decoder_hidden = Dense(decoder_dim, activation=activ, name='Decoder_H')
-    decoder_hidden2 = Dense(decoder_dim2, activation=activ, name='Decoder_H2')
+    #decoder_hidden = Dense(decoder_dim, activation=activ, name='Decoder_H')
+    #decoder_hidden2 = Dense(decoder_dim2, activation=activ, name='Decoder_H2')
         
-    decoder_out = Dense(decoder_out_dim, activation='sigmoid', name='Output')
-    if encoder_dim2 > 0:
-        zc = decoder_hidden2(zc)
-    h_p = decoder_hidden(zc)
-    outputs = decoder_out(h_p)
+    #decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+    if (intermediate_dim > 0):
+        decoder_hidden = Dense(decoder_dim, activation=activ, name='Decoder_H')
+        decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+        h_p = decoder_hidden(zc)
+        outputs = decoder_out(h_p)
+    else:
+        decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+        outputs = decoder_out(zc)
 
     def vae_loss(y_true, y_pred):
-        recon = K.sum(K.binary_crossentropy(y_pred, y_true), axis=1)
+        recon = original_dim * metrics.mse(y_pred, y_true)
         kl = 0.5 * K.sum(K.exp(l_sigma) + K.square(mu) - 1. - l_sigma, axis=1)
         return recon + kl
 
@@ -246,18 +264,21 @@ def buid_cvae(original_dim,
         return(0.5 * K.sum(K.exp(l_sigma) + K.square(mu) - 1. - l_sigma, axis=1))
 
     def recon_loss(y_true, y_pred):
-        return(K.sum(K.binary_crossentropy(y_pred, y_true), axis=1))
+        return original_dim * metrics.mse(y_pred, y_true)
 
     # build a model to project inputs on the latent space
     
 
     d_in = Input(shape=(n_z+n_t+n_d,))
-    if encoder_dim2 > 0:
-        d_h = decoder_hidden2(d_in)
-        d_h = decoder_hidden(d_h)
+    if (intermediate_dim > 0):
+        decoder_hidden = Dense(decoder_dim, activation=activ, name='Decoder_H')
+        decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+        h_p = decoder_hidden(d_in)
+        d_out = decoder_out(h_p)
     else:
-        d_h = decoder_hidden(d_in)
-    d_out = decoder_out(d_h)
+        decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+        d_out = decoder_out(d_in)
+
     
     if (concat_time):
         if (concat_day):
@@ -312,21 +333,29 @@ def build_vae(original_dim,
 
     X = Input(shape=(n_x,), name='Input')
     # activity_regularizer = 'l2',
-    encoder_h = Dense(encoder_dim1, activation=activ,  name='Encoder_H')(X)
-    mu = Dense(n_z, activation='linear', name='mu')(encoder_h)
-    l_sigma = Dense(n_z, activation='linear', name='l_sigma')(encoder_h)
+    if (intermediate_dim > 0):
+        encoder_h = Dense(encoder_dim1, activation=activ,  name='Encoder_H')(X)
+        mu = Dense(n_z, activation='linear', name='mu')(encoder_h)
+        l_sigma = Dense(n_z, activation='linear', name='l_sigma')(encoder_h)
+    else:
+        mu = Dense(n_z, activation='linear', name='mu')(X)
+        l_sigma = Dense(n_z, activation='linear', name='l_sigma')(X)
 
 
     # Sampling latent space
     z = Lambda(sample_z, output_shape = (n_z, ), name='Sampling')([mu, l_sigma])
 
-    decoder_hidden = Dense(decoder_dim, activation=activ, name='Decoder_H')
-    decoder_out = Dense(decoder_out_dim, activation='sigmoid', name='Output')
-    h_p = decoder_hidden(z)
-    outputs = decoder_out(h_p)
+    if (intermediate_dim > 0):
+        decoder_hidden = Dense(decoder_dim, activation=activ, name='Decoder_H')
+        decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+        h_p = decoder_hidden(z)
+        outputs = decoder_out(h_p)
+    else:
+        decoder_out = Dense(decoder_out_dim, activation='linear', name='Output')
+        outputs = decoder_out(z)
 
     def vae_loss(y_true, y_pred):
-        recon = K.sum(K.binary_crossentropy(y_pred, y_true), axis=1)
+        recon = original_dim * metrics.mse(y_pred, y_true)
         kl = 0.5 * K.sum(K.exp(l_sigma) + K.square(mu) - 1. - l_sigma, axis=1)
         return recon + kl
 
@@ -334,7 +363,7 @@ def build_vae(original_dim,
         return(0.5 * K.sum(K.exp(l_sigma) + K.square(mu) - 1. - l_sigma, axis=1))
 
     def recon_loss(y_true, y_pred):
-        return(K.sum(K.binary_crossentropy(y_pred, y_true), axis=1))
+        return original_dim * metrics.mse(y_pred, y_true)
 
     # build a model to project inputs on the latent space
     vae = Model(X, outputs)
@@ -343,8 +372,11 @@ def build_vae(original_dim,
 
     # Generator, from latent space to reconstructed inputs
     decoder_input = Input(shape=(n_z,))
-    _h_decoded = decoder_hidden(decoder_input)
-    _x_decoded_mean = decoder_out(_h_decoded)
+    if (intermediate_dim > 0):
+        _h_decoded = decoder_hidden(decoder_input)
+        _x_decoded_mean = decoder_out(_h_decoded)
+    else:
+        _x_decoded_mean = decoder_out(decoder_input)
     generator = Model(decoder_input, _x_decoded_mean)
 
     encoder = Model(X, mu)
