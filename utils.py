@@ -263,12 +263,15 @@ def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, proce
 
     day_categorical = np.asarray(df.timestamp.dt.weekday)
     time_categorical = np.asarray(df.timestamp.dt.time.map(lambda x: int(str(x)[0:2])))
+    minute_categorical = np.asarray(df.timestamp.dt.time.map(lambda x: int(str(x)[3:5])/5))
 
     (X,y,q) = make_timeseries_instances(timeseries=dataset*multiplier, window_size=window_size)
     (Xd,yd,qd) = make_timeseries_instances(timeseries=day_categorical, window_size=window_size)
     (Xt,yt,qt) = make_timeseries_instances(timeseries=time_categorical, window_size=window_size)
+    (Xm,ym,qm) = make_timeseries_instances(timeseries=minute_categorical, window_size=window_size)
+    
     assert(len(y) == len(yd) == len(yt))
-    print(Xd.shape, yd.shape, Xt.shape, yt.shape)
+    print(Xd.shape, yd.shape, Xt.shape, yt.shape, Xm.shape, ym.shape)
     indices = ~np.all(y == 0, axis=1)
     
     Xc = X[indices, :, :]
@@ -280,12 +283,18 @@ def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, proce
     Xt = Xt[indices,:]
     yt = yt[indices]
     
+    Xm = Xm[indices,:]
+    ym = ym[indices]
+    
     test_size = int(val_size * Xc.shape[0])           # In real life you'd want to use 0.2 - 0.5
     x_train_c, x_test_c, y_train_c, y_test_c = Xc[:-test_size], Xc[-test_size:], yc[:-test_size], yc[-test_size:]
     Xt = Xt.reshape(Xt.shape[0],Xt.shape[1])
     Xd = Xd.reshape(Xt.shape[0],Xt.shape[1])
+    Xm = Xm.reshape(Xm.shape[0],Xm.shape[1])
+    
     x_train_t, x_test_t, y_train_t, y_test_t = Xt[:-test_size], Xt[-test_size:], yt[:-test_size], yt[-test_size:]
     x_train_d, x_test_d, y_train_d, y_test_d = Xd[:-test_size], Xd[-test_size:], yd[:-test_size], yd[-test_size:]
+    x_train_m, x_test_m, y_train_m, y_test_m = Xm[:-test_size], Xm[-test_size:], ym[:-test_size], ym[-test_size:]
     
     if (batch_size > 0):
         l_total = int(len(Xc)/batch_size)*batch_size
@@ -298,6 +307,8 @@ def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, proce
         yd = yd[:l_total]
         Xt = Xt[:l_total]
         yt = yt[:l_total]
+        Xm = Xm[:l_total]
+        ym = ym[:l_total]
 
         x_train_c = x_train_c[:l_train]
         x_test_c = x_test_c[:l_test]
@@ -313,6 +324,11 @@ def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, proce
         x_test_d = x_test_d[:l_test]
         y_train_d = y_train_d[:l_train]
         y_test_d = y_test_d[:l_test]
+        
+        x_train_m = x_train_m[:l_train]
+        x_test_m = x_test_m[:l_test]
+        y_train_m = y_train_m[:l_train]
+        y_test_m = y_test_m[:l_test]
     
     y_train_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_train_c]
     y_test_labels = [dict(zip(popular_apps, np.round(300*x))) for x in y_test_c]
@@ -349,6 +365,8 @@ def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, proce
         'yt' : yt,
         'Xd' : Xd,
         'yd' : yd,
+        'Xm' : Xm,
+        'ym' : ym,
         'x_train_c' : x_train_c,
         'x_test_c' : x_test_c,
         'y_train_c' : y_train_c,
@@ -361,9 +379,14 @@ def make_clean_data(window_size,batch_size=0, val_size=0.2,multiplier=300, proce
         'x_test_d' : x_test_d,
         'y_train_d' : y_train_d,
         'y_test_d' : y_test_d,
+        'x_train_m' : x_train_m,
+        'x_test_m' : x_test_m,
+        'y_train_m' : y_train_m,
+        'y_test_m' : y_test_m,
         'popular_apps' : popular_apps,
         'days' : len(set(day_categorical)),
         'time' : len(set(time_categorical)),
+        'minute' : len(set(minute_categorical)),
         'day_categorical' : day_categorical,
         'time_categorical' : time_categorical,
         'dataset' : dataset,
