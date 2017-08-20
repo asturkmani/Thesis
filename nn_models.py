@@ -6,20 +6,11 @@ import pandas as pd
 
 from random import randint
 import datetime
-import colorlover as cl
-from IPython.display import SVG
-from IPython.display import HTML
-from keras.utils.vis_utils import model_to_dot
 
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from scipy.stats import norm
 from keras import objectives
-
-import plotly.plotly as py
-import plotly.graph_objs as go
-import plotly
-import matplotlib.pyplot as plt
 
 from keras.models import *
 from keras.layers import *
@@ -30,7 +21,6 @@ from keras.utils import to_categorical
 from utils import *
 
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau
-from keras_tqdm import TQDMNotebookCallback
 from keras import regularizers
 from keras import backend as K
 from keras import metrics
