@@ -1,0 +1,88 @@
+\chapter{Data Collection \& Processing} \label{data}
+\section{RescueTime}
+RescueTime is an app available on the Android Playstore, and available for download on the Windows and MacOS platforms. It synchronizes and tracks data about applications active across the user's devices it is installed on. RescueTime collects data at the application and website level, and offer the ability to categorize a wide array of apps and websites into predefined mainstream application categories like Instant Message, General Social Networking, General Software Development, and others. A current limitation of the RescueTime platform is the granularity of data collection. Currently, RescueTime aggregates data into 5-minute buckets on local devices before storing them on the server. Consequently, the available data provides information on how many seconds an application was used in a 5-minute interval, across all apps used in that same interval. While different apps are logged within the 5-minute block, no information is available on the sequence of usage of those apps in that block. A sample of the raw data from RescueTime is displayed in Table \ref{dirtydata}. The next section discusses the data cleaning and processing performed prior to any modeling.
+
+\begin{table}
+\centering
+\caption{RescueTime Data Before Processing}
+\label{dirtydata}
+\begin{tabular}{llll}
+\hline
+\{\} &                 Date & Time Spent (seconds) &                     Category \\
+\hline
+15 &  2017-03-01T16:10:00 &                [107] &            [Instant Message] \\
+20 &  2017-03-01T16:55:00 &                 [20] &                      [other] \\
+21 &  2017-03-01T16:55:00 &                  [5] &                     [Search] \\
+22 &  2017-03-01T17:10:00 &                [136] &     [General News \& Opinion] \\
+53 &  2017-03-01T21:55:00 &                [174] &  [General Social Networking] \\
+54 &  2017-03-01T21:55:00 &                 [19] &                     [Search] \\
+55 &  2017-03-01T21:55:00 &                 [14] &            [Instant Message] \\
+56 &  2017-03-01T21:55:00 &                  [2] &                      [other] \\
+
+\hline
+\end{tabular}
+\end{table}
+
+\section{Data Processing}
+\subsection{Categories vs applications/websites}
+RescueTime collects data at the application and website level, giving us data on every application and website used over the 5-minute interval. Despite the benefits of more granular data, the data at this granularity poses several problems:
+\begin{itemize}
+    \item The same app, used via different channels, counts as a different app. For example, Whatsapp messenger used on the mobile app, the desktop app or the web app will count as three different 'apps' used, whereas in fact the user was engaging in the same activity.
+    \item Tracking the individual websites a user accesses for a specific task results in a data explosion. For example, a user may engage several websites, such as StackOverflow, Stackshare, Github, etc when searching for solutions to a particular technical problem. With enough data collected across a large number of users, this may not be a problem. However, in this particular case, the dataset used is for only one person over a period of 6 months and such high-dimensional data may prove cumbersome to train on given the dataset size.
+    \item A specific user would use a unique set of apps for an activity, while another user may use a different set of apps for the same activity. For example, one person may use PyCharm as their prefered development platform, while another may prefer using Jupyter Notebooks. Moreover, the same user may utilize several apps while doing the same activity, like using both PyCharm and Jupyter Notebooks when developing in Python. Given a large enough dataset across a number of users, it may be possible to train a model that learns the similarities and differences across apps, however given the sample and dataset size, once again, this would be cumbersome.
+\end{itemize}
+
+For the reasons detailed above, for this project only the category level data is considered, i.e. the data collected is aggregated into high-level categories pre-defined by RescueTime.
+
+\subsection{Cleaning the data}
+
+\subsubsection{Reducing dimensionality}
+In processing the data, first we observe that only a few apps consume the majority of a users time. Figure \ref{time_spent} shows the cumulative time spent for the 25 categories that consume the most time. Empirically, we observe that only the 14 most popular apps consume 90\% of the user's recorded time.\\
+
+\begin{figure}[htbp]
+ \centering
+ \caption{CDF of time-spent across most popular apps}
+ \label{time_spent}
+ \includegraphics[width=1\textwidth]{images/time_spent}
+\end{figure}
+
+To reduce the dimensionality of the data at each timestep, we retain only these 14 categories and lump all other categories into a generic 'other' category. Let $\mathcal{P} \in \mathcal{R}^\mathcal{D}$ denote this list of 15 categories sorted in decreasing order of total time consumed ($\mathcal{D} = 15$). These categories are visualized in Figure \ref{TimeSpentDistribution}.\\
+
+\begin{figure}[htbp]
+ \centering
+ \caption{Percent of total time spent in each category}
+ \label{TimeSpentDistribution}
+ \includegraphics[width=1\textwidth]{images/TimeSpentDistribution}
+\end{figure}
+
+\subsubsection{Grouping timestamps} \label{group_t}
+Moreover, the data from RescueTime is formatted such that for a single timestamp, a different datapoint exists for each app used in that block as can be seen in the last four rows in Table \ref{dirtydata}. For the same timestamp, 2017-03-01T21:55:00 we have four rows that each show a different category. During pre-processing, these data points are aggregated into a vector of size $\mathcal{D}$.
+where each index contains the time spent on the corresponding application, with the order following that of $\mathcal{P}$. As an example, the last four rows would be grouped together into a single timestamp with entry, called the Activity Vector $x$, $x = [14,0,0,174,0,0,0,0,19,0,0,0,0,0,2]$. Each entry in an Activity Vector represents the number of seconds spent on apps in the corresponding category defined in $\mathcal{P}$ across a 5-minute, or 300-second, interval. To normalize the Activity Vectors to the range $[0,1]$ we divide all entries by 300. It is worth noting that the sum of time spent on all categories in each 5-minute block need not equal 300 seconds as it is possible a user does not utilize their devices/apps for the entirety of the 5-minute interval.
+
+\subsubsection{Missing data}
+As alluded to in \ref{group_t}, RescueTime collects no data when apps are not being used. Consequently, in 5-minute intervals where no apps are used on any device, for example when sleeping or just generally not using ones devices, RescueTime reports no entry for that interval. These datapoints however need to be included, as using no applications on any device still contains information about a user's app-usage behaviour. To fill in these data points, we expand the dataset to contain all 5-minute blocks over the collection period and fill the missing entries with an Activity Vector of zeros indicating that in the specified time-interval no applications were used. A sample of the final cleaned data is shown in Table \ref{cleandata}
+
+
+\begin{table}
+\centering
+\caption{RescueTime Data After Processing}
+\label{cleandata}
+\begin{tabular}{ll}
+\hline
+Date  &                       Activity Vector \\
+\hline
+2017-03-01T00:00:00 &  [0.133333333333, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,... \\
+2017-03-01T15:20:00 &  [0.0366666666667, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0... \\
+2017-03-01T17:10:00 &  [0.133333333333, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,... \\
+2017-03-01T17:15:00 &  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ... \\
+2017-03-01T17:20:00 &  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ... \\
+2017-03-01T17:45:00 &  [0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,... \\
+2017-03-01T17:55:00 &  [0.0, 0.0, 0.0, 0.16, 0.0, 0.0, 0.0, 0.0, 0.01... \\
+2017-03-01T18:00:00 &  [0.0, 0.0, 0.0, 0.0333333333333, 0.0, 0.0, 0.0... \\
+2017-03-01T19:00:00 &  [0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2866666... \\
+2017-03-01T19:35:00 &  [0.0733333333333, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0... \\
+2017-03-01T19:55:00 &  [0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.02... \\
+2017-03-02T17:55:00 &  [0.0, 0.0, 0.0, 0.0166666666667, 0.0, 0.0, 0.1... \\
+\hline
+\end{tabular}
+\end{table}

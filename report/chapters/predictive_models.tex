@@ -1,0 +1,41 @@
+ \chapter{Predictive Models} \label{predmod}
+ \section{Introducing the problem}
+ As previously discussed in Chapter \ref{intro}, individuals have several heuristics that guide their daily choices \citep{Kahneman1979}. These heuristics are also employed in choices of which applications to use next when accomplishing tasks or engaging in leisurely activity. This thesis hypothesizes that these mental models and frameworks can be captured by extracting patterns from observed user behaviour. More specifically, by training models that attempt to predict what applications a user will utilize next, these models will have to learn to capture these rules in order to perform well at the prediction. To test this hypothesis, this chapter explores structuring this problem as one of time-series forecasting. Assume $y_n \in \mathcal{R}^\mathcal{D} $ is an Activity Vector representing the applications a user utilized at time $n$. Given $X_n \in \mathcal{R}^{T \times \mathcal{D}}$ where $X_n$ represents the previous $T$ Activity Vectors, we would like to be able to predict $y_n$. In doing so, we make the assumption that a temporal dependency exists in a person's choice of applications, and uncovering this temporal dependency will require a class of models capable of handling sequences of data.
+
+ \section{Sequential models}
+ Neural networks have gained popularity for their successes in addressing a wide-array of pattern recognition problems ranging from optical character recognition to making diagnoses from patient medical data \citep{Amato2013}. A main shortcoming of these neural networks however is they can only handle inputs of a pre-defined size and cannot capture temporal dependencies inherent in sequential data. Better suited for handling sequential data are Recurrent Neural Networks (RNNs) and their variants the Long Short Term Memory (LSTM) \citep{Hochreiter1997} and Gated Recurrent Units (GRU) \citep{Cho2014}. RNNs have displayed state-of-the-art results in their ability to encode sequences of data into a fixed-dimensional representation vector which is then used for a myriad of tasks, such as predicting the next element in a sequence, or as input to a decoder network that generates a sequence from this encoding. The first application of RNNs, encoding a sequence into a vector representation and predicting the next sequence will be called the time-series prediction approach. The latter application of RNNs, encoding sequences into a fixed vector representation from which a decoder is initialised is commonly known as sequence-to-sequence learning. Examples of time-series prediction can be found in language modelling where RNNs are used to predict the next character or word in a sequence \citep{mikolov2010recurrent}, text generation \citep{ICML2011Sutskever_524} and stock price prediction \citep{bernal2012financial} among many others. Sequence-to-sequence Encoder-Decoder models have enjoyed huge successes in machine translation \citep{sutskever2014sequence, bahdanau2014neural} and speech recognition \citep{chan2015listen}. The Encoder-Decoder architecture has been applied to other sequence problems, such as image captioning \citep{xu2015show}, activity understanding and video captioning \citep{donahue2015long}. In encoding inputs such as images and videos, the Convolutional Neural Network (CNN) has been used due to its ability to capture both temporal and spatial dependencies. In the case of sequences that do not contain any spatial dependencies, such as a sequence of words, a 1-dimensional CNN can alternatively be used that performs convolutions only across the time dimension. These variants of the CNN have been leveraged in designing completely convolutional encoders and decoders for sequence-to-sequence learning, particularly in machine translation, where they have delivered superior accuracy results as well as offering substantial speed-ups in time required to train due to their heavily parallelizable structure \citep{gehring2017convolutional}.\\
+
+ In the following sections, we offer a brief overview of the theory behind Recurrent Neural Networks and Convolutional Neural Networks, followed by the results of applying these models to the task of predicting future app usage and a discussion on the results.
+
+ \section{Results \& discussion}
+
+ % \begin{figure}[htbp]
+ %   \centering
+ %   \caption{2D Embedding of Conv1D predictions}
+ %   \label{top_cats}
+ %   \includesvg[width=1\textwidth]{images/VAE-Conv1D-Y-Pred}
+ % \end{figure}
+
+ % \begin{figure}[htbp]
+ %   \centering
+ %   \caption{2D Embedding of LSTM predictions}
+ %   \label{top_cats}
+ %   \includesvg[width=1\textwidth]{images/VAE-LSTM-Y-Pred}
+ % \end{figure}
+
+ % \begin{figure}[htbp]
+ %   \centering
+ %   \caption{2D Embedding of true values}
+ %   \label{top_cats}
+ %   \includesvg[width=1\textwidth]{images/VAE-Y-True}
+ % \end{figure}
+
+ \subsection{LSTM}
+ \subsubsection{Choice of hyperparameters}
+
+ \subsection{CNN}
+ \subsubsection{Choice of hyperparameters}
+ \subsection{LSTM conditioned on Time \& Day}
+ \subsubsection{Choice of hyperparameters}
+ \subsection{CNN condition on Time \& Day}
+ \subsubsection{Choice of hyperparameters}

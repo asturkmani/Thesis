@@ -1,0 +1,1935 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  20 AUG 2017 13:51
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 21 languages loaded.
+(./ociamthesis.cls
+Document Class: ociamthesis 2010/11/22 v2.2 OCIAM thesis class
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 95.
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+))
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen105
+))
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen106
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks16
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks17
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/Users/asturkmani/Library/texmf/tex/latex/ltablex/ltablex.sty
+Package: ltablex 2014/08/13 v1.1 Modified tabularx
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip46
+\LTright=\skip47
+\LTpre=\skip48
+\LTpost=\skip49
+\LTchunksize=\count101
+\LTcapwidth=\dimen114
+\LT@head=\box28
+\LT@firsthead=\box29
+\LT@foot=\box30
+\LT@lastfoot=\box31
+\LT@cols=\count102
+\LT@rows=\count103
+\c@LT@tables=\count104
+\c@LT@chunks=\count105
+\LT@p@ftn=\toks20
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen115
+\extrarowheight=\dimen116
+\NC@list=\toks21
+\extratabsurround=\skip50
+\backup@length=\skip51
+)
+\TX@col@width=\dimen117
+\TX@old@table=\dimen118
+\TX@old@col=\dimen119
+\TX@target=\dimen120
+\TX@delta=\dimen121
+\TX@cols=\count106
+\TX@ftn=\toks22
+))
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen122
+\captionmargin@=\dimen123
+\captionwidth=\dimen124
+\caption@tempdima=\dimen125
+\caption@indent=\dimen126
+\caption@parindent=\dimen127
+\caption@hangindent=\dimen128
+)
+\c@ContinuedFloat=\count107
+Package caption Info: longtable package is loaded.
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+))
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.s
+ty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/oberdiek/hobsub-generic.st
+y
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2015basic/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen129
+\Hy@linkcounter=\count108
+\Hy@pagecounter=\count109
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count110
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count111
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen130
+\Fld@menulength=\count112
+\Field@Width=\dimen131
+\Fld@charsize=\dimen132
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count113
+\c@Item=\count114
+\c@Hfootnote=\count115
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count116
+\c@bookmark@seq@number=\count117
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip52
+) (/usr/local/texlive/2015basic/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip53
+\bibsep=\skip54
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count118
+)
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+(./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count119
+\scratchdimen=\dimen133
+\scratchbox=\box32
+\nofMPsegments=\count120
+\nofMParguments=\count121
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen134
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2015basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box33
+Package hyperref Info: Link coloring OFF on input line 33.
+ (/usr/local/texlive/2015basic/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/oberdiek/gettitlestring.st
+y
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count125
+)
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
+ (./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+Package epstopdf Info: Source file: <oxlogo.eps>
+(epstopdf)                    date: 2017-08-20 12:50:46
+(epstopdf)                    size: 513488 bytes
+(epstopdf)             Output file: <oxlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-08-20 00:21:02
+(epstopdf)                    size: 34038 bytes
+(epstopdf)             Command: <repstopdf --outfile=oxlogo-eps-converted-to.pd
+f oxlogo.eps>
+(epstopdf)             \includegraphics on input line 44.
+runsystem(repstopdf --outfile=oxlogo-eps-converted-to.pdf oxlogo.eps)...execute
+d safely (allowed).
+
+Package epstopdf Info: Result file: <oxlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-08-20 13:51:26
+(epstopdf)                    size: 34038 bytes.
+
+<oxlogo-eps-converted-to.pdf, id=4, 285.065pt x 285.065pt>
+File: oxlogo-eps-converted-to.pdf Graphic file (type pdf)
+
+<use oxlogo-eps-converted-to.pdf>
+Package pdftex.def Info: oxlogo-eps-converted-to.pdf used on input line 44.
+(pdftex.def)             Requested size: 91.04881pt x 91.04866pt.
+ [1
+
+
+{/usr/local/texlive/2015basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./
+oxlogo-eps-converted-to.pdf>]
+\openout2 = `dedication.aux'.
+
+
+(./dedication.tex [2
+
+
+])
+\openout2 = `acknowledgements.aux'.
+
+
+No file acknowledgements.tex.
+\openout2 = `abstract.aux'.
+
+No file abstract.tex.
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+[1
+
+
+
+
+
+
+
+]
+
+Package hyperref Warning: old lof file detected, not used; run LaTeX again.
+
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+[2
+
+]
+\openout2 = `chapters/intro.aux'.
+
+ (./chapters/intro.tex
+Chapter 1.
+
+Package natbib Warning: Citation `Kahneman1979' on page 1 undefined on input li
+ne 3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Package natbib Warning: Citation `Evans2015' on page 1 undefined on input line 
+5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Package natbib Warning: Citation `Szenberg2009' on page 1 undefined on input li
+ne 7.
+
+
+Package natbib Warning: Citation `Busemeyer2005' on page 1 undefined on input l
+ine 7.
+
+
+Package natbib Warning: Citation `Train2003' on page 1 undefined on input line 
+7.
+
+
+Package natbib Warning: Citation `shenoy2013rational' on page 1 undefined on in
+put line 7.
+
+
+Package natbib Warning: Citation `ng2000algorithms' on page 1 undefined on inpu
+t line 7.
+
+
+Package natbib Warning: Citation `baker2009action' on page 1 undefined on input
+ line 7.
+
+
+Package natbib Warning: Citation `russell1995modern' on page 1 undefined on inp
+ut line 7.
+
+
+Package natbib Warning: Citation `Kim2014' on page 1 undefined on input line 7.
+
+
+
+Package natbib Warning: Citation `Zheng2014' on page 1 undefined on input line 
+7.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8 
+     [1
+
+
+
+]
+
+Package natbib Warning: Citation `Evans2015' on page 2 undefined on input line 
+9.
+
+
+Package natbib Warning: Citation `Jern2017' on page 2 undefined on input line 9
+.
+
+
+Package natbib Warning: Citation `Kahneman1979' on page 2 undefined on input li
+ne 9.
+
+
+Package natbib Warning: Citation `ainslie2001breakdown' on page 2 undefined on 
+input line 9.
+
+
+Package natbib Warning: Citation `baker2014modeling' on page 2 undefined on inp
+ut line 9.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Package natbib Warning: Citation `anderson2012millennials' on page 2 undefined 
+on input line 14.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.16  T
+       he report further surveys these experts about what they consider the ...
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Package natbib Warning: Citation `Lyngs' on page 3 undefined on input line 18.
+
+
+Package natbib Warning: Citation `davenport2013attention' on page 3 undefined o
+n input line 20.
+
+
+Package natbib Warning: Citation `Lyngs' on page 3 undefined on input line 20.
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
+Package natbib Warning: Citation `pirolli1999information' on page 4 undefined o
+n input line 26.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 31.
+ (/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 31.
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+[5]) [6]
+\openout2 = `chapters/data.aux'.
+
+ (./chapters/data.tex
+Chapter 2.
+
+LaTeX Warning: Reference `dirtydata' on page 7 undefined on input line 3.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 9.
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 9.
+
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [7
+
+
+
+]
+
+LaTeX Warning: Reference `time_spent' on page 8 undefined on input line 40.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+[8] <images/time_spent.png, id=74, 1084.05pt x 722.7pt>
+File: images/time_spent.png Graphic file (type png)
+
+<use images/time_spent.png>
+Package pdftex.def Info: images/time_spent.png used on input line 46.
+(pdftex.def)             Requested size: 433.62pt x 289.07487pt.
+
+
+LaTeX Warning: Reference `TimeSpentDistribution' on page 9 undefined on input l
+ine 49.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+<images/TimeSpentDistribution.png, id=76, 1084.05pt x 505.89pt>
+File: images/TimeSpentDistribution.png Graphic file (type png)
+
+<use images/TimeSpentDistribution.png>
+Package pdftex.def Info: images/TimeSpentDistribution.png used on input line 55
+.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+
+LaTeX Warning: Reference `dirtydata' on page 9 undefined on input line 59.
+
+[9 <./images/time_spent.png>]
+
+LaTeX Warning: Reference `group_t' on page 10 undefined on input line 63.
+
+
+LaTeX Warning: Reference `cleandata' on page 10 undefined on input line 63.
+
+) [10 <./images/TimeSpentDistribution.png>] [11]
+\openout2 = `chapters/background.aux'.
+
+ (./chapters/background.tex
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+[12
+
+
+
+]
+
+Package natbib Warning: Citation `murphy2012machine' on page 13 undefined on in
+put line 7.
+
+<images/KnnClassification.png, id=106, 722.7pt x 542.025pt>
+File: images/KnnClassification.png Graphic file (type png)
+
+<use images/KnnClassification.png>
+Package pdftex.def Info: images/KnnClassification.png used on input line 11.
+(pdftex.def)             Requested size: 216.81pt x 162.60875pt.
+
+<images/Linear_regression.png, id=107, 438.63875pt x 290.08376pt>
+File: images/Linear_regression.png Graphic file (type png)
+
+<use images/Linear_regression.png>
+Package pdftex.def Info: images/Linear_regression.png used on input line 18.
+(pdftex.def)             Requested size: 216.81pt x 143.38606pt.
+
+
+Package natbib Warning: Citation `reg' on page 13 undefined on input line 19.
+
+
+Package natbib Warning: Citation `reg' on page 13 undefined on input line 19.
+
+
+Package natbib Warning: Citation `murphy2012machine' on page 13 undefined on in
+put line 24.
+
+[13 <./images/KnnClassification.png> <./images/Linear_regression.png>]
+
+Package natbib Warning: Citation `nair2010rectified' on page 14 undefined on in
+put line 32.
+
+
+Package natbib Warning: Citation `clevert2015fast' on page 14 undefined on inpu
+t line 32.
+
+
+Package natbib Warning: Citation `murphy2012machine' on page 14 undefined on in
+put line 34.
+
+[14]
+
+Package natbib Warning: Citation `nair2010rectified' on page 15 undefined on in
+put line 47.
+
+
+Package natbib Warning: Citation `clevert2015fast' on page 15 undefined on inpu
+t line 47.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+<images/RNN-rolled.png, id=128, 165.4983pt x 256.91985pt>
+File: images/RNN-rolled.png Graphic file (type png)
+
+<use images/RNN-rolled.png>
+Package pdftex.def Info: images/RNN-rolled.png used on input line 51.
+(pdftex.def)             Requested size: 86.72267pt x 134.63011pt.
+
+Underfull \hbox (badness 4168) in paragraph at lines 52--52
+[]\OT1/cmr/m/n/12 Figure 3.3: |Rolled RNN, im-age from http://colah.github.io/p
+osts/2015-08-
+ []
+
+<images/RNN-unrolled.png, id=129, 977.8131pt x 256.91985pt>
+File: images/RNN-unrolled.png Graphic file (type png)
+
+<use images/RNN-unrolled.png>
+Package pdftex.def Info: images/RNN-unrolled.png used on input line 60.
+(pdftex.def)             Requested size: 433.62pt x 113.93497pt.
+
+Underfull \hbox (badness 1852) in paragraph at lines 61--61
+[]\OT1/cmr/m/n/12 Figure 3.4: |Un-rolled RNN, im-age from http://colah.github.i
+o/posts/2015-08-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+
+ []
+
+[15 <./images/RNN-rolled.png> <./images/RNN-unrolled.png>]
+
+Package natbib Warning: Citation `Hochreiter1997' on page 16 undefined on input
+ line 67.
+
+
+Package natbib Warning: Citation `Cho2014' on page 16 undefined on input line 6
+7.
+
+
+Package natbib Warning: Citation `gamboa2017deep' on page 16 undefined on input
+ line 80.
+
+) [16]
+\openout2 = `chapters/vae.aux'.
+
+ (./chapters/vae.tex
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Package natbib Warning: Citation `doersch2016tutorial' on page 17 undefined on 
+input line 12.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+[17
+
+
+
+]
+
+Package natbib Warning: Citation `goodfellow2014generative' on page 18 undefine
+d on input line 14.
+
+
+Package natbib Warning: Citation `kingma2013auto' on page 18 undefined on input
+ line 14.
+
+<images/miriams-figure.png, id=155, 803.0pt x 460.72125pt>
+File: images/miriams-figure.png Graphic file (type png)
+
+<use images/miriams-figure.png>
+Package pdftex.def Info: images/miriams-figure.png used on input line 23.
+(pdftex.def)             Requested size: 433.62pt x 248.7928pt.
+
+
+Package natbib Warning: Citation `_lorenz_' on page 18 undefined on input line 
+24.
+
+
+Package natbib Warning: Citation `_lorenz_' on page 18 undefined on input line 
+24.
+
+[18]
+
+Package natbib Warning: Citation `doersch2016tutorial' on page 19 undefined on 
+input line 33.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+[19 <./images/miriams-figure.png (PNG copy)>]
+
+LaTeX Warning: Reference `vae_intuition' on page 20 undefined on input line 36.
+
+
+<images/latent.png, id=169, 310.15875pt x 213.79875pt>
+File: images/latent.png Graphic file (type png)
+ <use images/latent.png>
+Package pdftex.def Info: images/latent.png used on input line 40.
+(pdftex.def)             Requested size: 216.81pt x 149.44931pt.
+
+
+Package natbib Warning: Citation `eric_jang' on page 20 undefined on input line
+ 41.
+
+
+Package natbib Warning: Citation `eric_jang' on page 20 undefined on input line
+ 41.
+
+[20 <./images/latent.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+[21] <images/mean-field.png, id=183, 401.5pt x 188.705pt>
+File: images/mean-field.png Graphic file (type png)
+
+<use images/mean-field.png>
+Package pdftex.def Info: images/mean-field.png used on input line 62.
+(pdftex.def)             Requested size: 216.81pt x 101.90205pt.
+
+
+Package natbib Warning: Citation `eric_jang' on page 22 undefined on input line
+ 63.
+
+
+Package natbib Warning: Citation `eric_jang' on page 22 undefined on input line
+ 63.
+
+[22 <./images/mean-field.png>]
+
+LaTeX Warning: Reference `fig:vae_schema' on page 23 undefined on input line 94
+.
+
+
+Overfull \hbox (2.69218pt too wide) in paragraph at lines 94--95
+[]\OT1/cmr/m/n/12 This loss func-tion has an in-tu-itive mean-ing: we learn our
+ model's dis-tri-bu-tion $[] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/1
+2 X\OT1/cmr/m/n/12 )$
+ []
+
+<images/vae.png, id=192, 753.81625pt x 406.51875pt>
+File: images/vae.png Graphic file (type png)
+ <use images/vae.png>
+Package pdftex.def Info: images/vae.png used on input line 98.
+(pdftex.def)             Requested size: 216.81pt x 116.91974pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+[23 <./images/vae.png>] <images/PCA.png, id=200, 1084.05pt x 505.89pt>
+File: images/PCA.png Graphic file (type png)
+
+<use images/PCA.png>
+Package pdftex.def Info: images/PCA.png used on input line 113.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+
+LaTeX Warning: Reference `TimeSpentDistribution' on page 24 undefined on input 
+line 118.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+[24] [25 <./images/PCA.png>] [26]
+Overfull \hbox (18.69902pt too wide) in paragraph at lines 135--136
+[]\OT1/cmr/m/n/12 The VAE's loss func-tion tries to jointly min-imise the re-co
+n-struc-tion er-ror $[] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\O
+MS/cmsy/m/n/12 j\OML/cmm/m/it/12 z\OT1/cmr/m/n/12 )$
+ []
+
+
+Package natbib Warning: Citation `Goodfellow-et-al-2016' on page 27 undefined o
+n input line 137.
+
+<images/VAE_Latent_Space3.png, id=217, 1084.05pt x 505.89pt>
+File: images/VAE_Latent_Space3.png Graphic file (type png)
+
+<use images/VAE_Latent_Space3.png>
+Package pdftex.def Info: images/VAE_Latent_Space3.png used on input line 141.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+
+LaTeX Warning: Reference `fig:vae_losses' on page 27 undefined on input line 14
+6.
+
+
+LaTeX Warning: Reference `my-vae_losses_table' on page 27 undefined on input li
+ne 146.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
+
+ []
+
+[27 <./images/VAE_Latent_Space3.png>]
+<images/VAE_Losses.png, id=225, 1084.05pt x 505.89pt>
+File: images/VAE_Losses.png Graphic file (type png)
+
+<use images/VAE_Losses.png>
+Package pdftex.def Info: images/VAE_Losses.png used on input line 157.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+ [28 <./images/VAE_Losses.png>]
+<images/VAE_latent_size_loss.png, id=232, 1084.05pt x 505.89pt>
+File: images/VAE_latent_size_loss.png Graphic file (type png)
+
+<use images/VAE_latent_size_loss.png>
+Package pdftex.def Info: images/VAE_latent_size_loss.png used on input line 180
+.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+
+LaTeX Warning: Reference `fig:latent_size' on page 29 undefined on input line 1
+85.
+
+
+LaTeX Warning: Reference `fig:vae_latent' on page 29 undefined on input line 18
+5.
+
+
+Package natbib Warning: Citation `sohn2015learning' on page 29 undefined on inp
+ut line 188.
+
+
+Package natbib Warning: Citation `doersch2016tutorial' on page 29 undefined on 
+input line 188.
+
+[29 <./images/VAE_latent_size_loss.png>]
+
+LaTeX Warning: Reference `vae_intuition' on page 30 undefined on input line 192
+.
+
+
+Package natbib Warning: Citation `sohn2015learning' on page 30 undefined on inp
+ut line 192.
+
+
+LaTeX Warning: Reference `vae_theory' on page 30 undefined on input line 192.
+
+[30]
+
+Package natbib Warning: Citation `doersch2016tutorial' on page 31 undefined on 
+input line 204.
+
+<images/c_vae.png, id=249, 1251.67625pt x 629.35126pt>
+File: images/c_vae.png Graphic file (type png)
+ <use images/c_vae.png>
+Package pdftex.def Info: images/c_vae.png used on input line 210.
+(pdftex.def)             Requested size: 433.62pt x 218.0291pt.
+
+
+LaTeX Warning: Reference `fig:mnist_vae' on page 31 undefined on input line 216
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
+
+ []
+
+[31 <./images/c_vae.png>] <images/MNIST_VAE.png, id=257, 1084.05pt x 505.89pt>
+File: images/MNIST_VAE.png Graphic file (type png)
+
+<use images/MNIST_VAE.png>
+Package pdftex.def Info: images/MNIST_VAE.png used on input line 220.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+
+LaTeX Warning: Reference `fig:mnist_cvae' on page 32 undefined on input line 22
+5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+[32 <./images/MNIST_VAE.png>]
+<images/MNIST_CVAE.png, id=265, 1084.05pt x 505.89pt>
+File: images/MNIST_CVAE.png Graphic file (type png)
+
+<use images/MNIST_CVAE.png>
+Package pdftex.def Info: images/MNIST_CVAE.png used on input line 229.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+
+LaTeX Warning: Reference `fig:mnist_cvae' on page 33 undefined on input line 23
+4.
+
+
+LaTeX Warning: Reference `fig:mnist_decode' on page 33 undefined on input line 
+234.
+
+
+LaTeX Warning: Reference `fig:cmnist_decode' on page 33 undefined on input line
+ 234.
+
+
+LaTeX Warning: Reference `fig:mnist_cvae' on page 33 undefined on input line 23
+4.
+
+[33 <./images/MNIST_CVAE.png>]
+<images/VAE_MNIST_Decode.png, id=273, 1084.05pt x 1084.05pt>
+File: images/VAE_MNIST_Decode.png Graphic file (type png)
+
+<use images/VAE_MNIST_Decode.png>
+Package pdftex.def Info: images/VAE_MNIST_Decode.png used on input line 238.
+(pdftex.def)             Requested size: 216.81pt x 216.80615pt.
+
+<images/CVAE_MNIST_Decode.png, id=274, 1084.05pt x 1084.05pt>
+File: images/CVAE_MNIST_Decode.png Graphic file (type png)
+
+<use images/CVAE_MNIST_Decode.png>
+Package pdftex.def Info: images/CVAE_MNIST_Decode.png used on input line 245.
+(pdftex.def)             Requested size: 216.81pt x 216.80615pt.
+
+
+LaTeX Warning: Reference `fig:cvae_latent' on page 34 undefined on input line 2
+52.
+
+
+LaTeX Warning: Reference `fig:cvae_loss' on page 34 undefined on input line 252
+.
+
+[34 <./images/VAE_MNIST_Decode.png>]
+<images/VAE_TD_Latent_Space.png, id=282, 1084.05pt x 505.89pt>
+File: images/VAE_TD_Latent_Space.png Graphic file (type png)
+
+<use images/VAE_TD_Latent_Space.png>
+Package pdftex.def Info: images/VAE_TD_Latent_Space.png used on input line 256.
+
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+<images/C_VAE_Losses.png, id=283, 1084.05pt x 505.89pt>
+File: images/C_VAE_Losses.png Graphic file (type png)
+
+<use images/C_VAE_Losses.png>
+Package pdftex.def Info: images/C_VAE_Losses.png used on input line 263.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+<images/C_VAE_Prev_Latent_Space.png, id=284, 1084.05pt x 505.89pt>
+File: images/C_VAE_Prev_Latent_Space.png Graphic file (type png)
+
+<use images/C_VAE_Prev_Latent_Space.png>
+Package pdftex.def Info: images/C_VAE_Prev_Latent_Space.png used on input line 
+272.
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+
+<images/C_VAE_Losses_prev_X.png, id=285, 1084.05pt x 505.89pt>
+File: images/C_VAE_Losses_prev_X.png Graphic file (type png)
+
+<use images/C_VAE_Losses_prev_X.png>
+Package pdftex.def Info: images/C_VAE_Losses_prev_X.png used on input line 279.
+
+(pdftex.def)             Requested size: 433.62pt x 202.3524pt.
+) [35 <./images/CVAE_MNIST_Decode.png> <./images/VAE_TD_Latent_Space.png>] [36 
+<./images/C_VAE_Losses.png> <./images/C_VAE_Prev_Latent_Space.png>] [37 <./imag
+es/C_VAE_Losses_prev_X.png>]
+\openout2 = `chapters/predictive_models.aux'.
+
+
+(./chapters/predictive_models.tex
+Chapter 5.
+
+LaTeX Warning: Reference `intro' on page 38 undefined on input line 3.
+
+
+Package natbib Warning: Citation `Kahneman1979' on page 38 undefined on input l
+ine 3.
+
+
+Package natbib Warning: Citation `Amato2013' on page 38 undefined on input line
+ 6.
+
+
+Package natbib Warning: Citation `Hochreiter1997' on page 38 undefined on input
+ line 6.
+
+
+Package natbib Warning: Citation `Cho2014' on page 38 undefined on input line 6
+.
+
+
+Package natbib Warning: Citation `mikolov2010recurrent' on page 38 undefined on
+ input line 6.
+
+
+Package natbib Warning: Citation `ICML2011Sutskever_524' on page 38 undefined o
+n input line 6.
+
+
+Package natbib Warning: Citation `bernal2012financial' on page 38 undefined on 
+input line 6.
+
+
+Package natbib Warning: Citation `sutskever2014sequence' on page 38 undefined o
+n input line 6.
+
+
+Package natbib Warning: Citation `bahdanau2014neural' on page 38 undefined on i
+nput line 6.
+
+
+Package natbib Warning: Citation `chan2015listen' on page 38 undefined on input
+ line 6.
+
+
+Package natbib Warning: Citation `xu2015show' on page 38 undefined on input lin
+e 6.
+
+
+Package natbib Warning: Citation `donahue2015long' on page 38 undefined on inpu
+t line 6.
+
+
+Package natbib Warning: Citation `gehring2017convolutional' on page 38 undefine
+d on input line 6.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+[38
+
+
+
+]) [39] [40]
+\openout2 = `chapters/results.aux'.
+
+ (./chapters/results.tex
+Chapter 6.
+) [41
+
+
+
+]
+\openout2 = `chapters/conclusions.aux'.
+
+ (./chapters/conclusions.tex
+Chapter 7.
+) [42
+
+
+
+]
+\openout2 = `appendix1.aux'.
+
+
+No file appendix1.tex.
+\openout2 = `appendix2.aux'.
+
+No file appendix2.tex.
+(./main.bbl
+Underfull \hbox (badness 1831) in paragraph at lines 50--56
+\OT1/cmr/m/n/12 ci-sion Mak-ing.  \OT1/cmr/m/it/12 Brand\OT1/cmr/m/n/12 , 2:1--
+39, 2005.  ISSN 01635182.  URL []$\OT1/cmtt/m/n/12 http : / /
+ []
+
+[43
+
+
+
+
+
+
+]
+./main.bbl:86: Missing $ inserted.
+<inserted text> 
+                $
+l.86 \newblock File: \ttfamily{Linear_
+                                      regression.svg}.
+? <ret>
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? <return>
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? 
+./main.bbl:86: Extra }, or forgotten $.
+l.86 ...ock File: \ttfamily{Linear_regression.svg}
+                                                  .
+? 
+./main.bbl:87: Missing $ inserted.
+<inserted text> 
+                $
+l.87 
+     
+? 
+./main.bbl:87: Missing } inserted.
+<inserted text> 
+                }
+l.87 
+     
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--93
+[]\OT1/cmtt/m/n/12 Thomas H Davenport and John C Beck.  \OT1/cmtt/m/it/12 The a
+ttention economy:
+ []
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 95--98
+[]\OT1/cmtt/m/n/12 Carl Doersch.  Tutorial on variational autoencoders.  \OT1/c
+mtt/m/it/12 arXiv preprint
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--107
+[]\OT1/cmtt/m/n/12 Jeffrey Donahue, Lisa Anne Hendricks, Sergio Guadarrama, Mar
+cus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--107
+\OT1/cmtt/m/n/12 Rohrbach, Subhashini Venugopalan, Kate Saenko, and Trevor Darr
+ell.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--107
+\OT1/cmtt/m/n/12 Long-term recurrent convolutional networks for visual recognit
+ion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--114
+[]\OT1/cmtt/m/n/12 Owain Evans, Andreas Stuhlm^^?uller, and Noah D Goodman.  Le
+arning
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--114
+\OT1/cmtt/m/n/12 the preferences of bounded agents.  \OT1/cmtt/m/it/12 NIPS Wor
+kshop on Bounded
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--114
+\OT1/cmtt/m/it/12 Optimality\OT1/cmtt/m/n/12 , pages 16--22, 2015.  URL []$http
+ : / / web . mit . edu / owain / www /
+ []
+
+
+Underfull \hbox (badness 2781) in paragraph at lines 116--119
+[]\OT1/cmtt/m/n/12 John Cristian Borges Gamboa.  Deep learning for time-series 
+analysis.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--125
+[]\OT1/cmtt/m/n/12 Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, a
+nd Yann N
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--125
+\OT1/cmtt/m/n/12 Dauphin.  Convolutional sequence to sequence learning.  \OT1/c
+mtt/m/it/12 arXiv
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
+[]\OT1/cmtt/m/n/12 Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, Da
+vid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
+\OT1/cmtt/m/n/12 Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengi
+o.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
+\OT1/cmtt/m/n/12 Generative adversarial nets.  In \OT1/cmtt/m/it/12 Advances in
+ neural information
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--140
+[]\OT1/cmtt/m/n/12 Ian Goodfellow, Yoshua Bengio, and Aaron Courville.  \OT1/cm
+tt/m/it/12 Deep Learning\OT1/cmtt/m/n/12 .
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+[]\OT1/cmtt/m/n/12 Sepp Hochreiter and Jurgen J^^?urgen Schmidhuber.  Long shor
+t-term
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+\OT1/cmtt/m/n/12 memory.  \OT1/cmtt/m/it/12 Neural Computation\OT1/cmtt/m/n/12 
+, 9(8):1--32, 1997.  ISSN 0899-7667.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+\OT1/cmtt/m/n/12 doi: $\OT1/cmr/m/n/12 10 . 1162 / neco . 1997 . 9 . 8 . 1735$\
+OT1/cmtt/m/n/12 .  URL []$http : / / www . mitpressjournals .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+\OT1/cmtt/m/n/12 org / doi / abs / 10 . 1162 / neco . 1997 . 9 . 8 . 1735{%}5Cn
+file : / / /Files /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+\OT1/cmtt/m/n/12 F0 / F0267A41-[]D807-[]4137-[]A5AC-[]8D9A84E9E12C . pdf{%}5Cnp
+apers3 : / /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+\OT1/cmtt/m/n/12 publication / doi / 10 . 1162 / neco . 1997 . 9 . 8 . 1735{%}5
+Cnfile : / / /Files / B1 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--154
+[]\OT1/cmtt/m/n/12 Eric Jang.  A beginner's guide to variational methods: Mean-
+field
+ []
+
+
+Underfull \hbox (badness 1521) in paragraph at lines 156--160
+[]\OT1/cmtt/m/n/12 Alan Jern, Christopher G Lucas, and Charles Kemp.  \OT1/cmtt
+/m/it/12 People learn other
+ []
+
+
+Underfull \hbox (badness 2980) in paragraph at lines 156--160
+\OT1/cmtt/m/it/12 people's preferences through inverse decision-making\OT1/cmtt
+/m/n/12 .  PhD thesis,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--175
+[]\OT1/cmtt/m/n/12 Dongho Kim, Catherine Breslin, Pirros Tsiakoulis, Milica Ga^
+^Tsi^^Sc,
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 168--175
+\OT1/cmtt/m/n/12 Matthew Henderson, and Steve Young.  Inverse reinforcement lea
+rning
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--175
+\OT1/cmtt/m/it/12 the International Speech Communication Association, INTERSPEE
+CH\OT1/cmtt/m/n/12 , 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
+[]\OT1/cmtt/m/n/12 Diederik P Kingma and Max Welling.  Auto-encoding variationa
+l bayes.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--193
+[]\OT1/cmtt/m/n/12 Tomas Mikolov, Martin Karafi^^Sat, Lukas Burget, Jan Cernock
+^^Ry, and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
+[]\OT1/cmtt/m/n/12 Vinod Nair and Geoffrey E Hinton.  Rectified linear units im
+prove
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
+\OT1/cmtt/m/n/12 restricted boltzmann machines.  In \OT1/cmtt/m/it/12 Proceedin
+gs of the 27th
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
+\OT1/cmtt/m/it/12 international conference on machine learning (ICML-10)\OT1/cm
+tt/m/n/12 , pages
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 206--209
+[]\OT1/cmtt/m/n/12 Andrew Y Ng, Stuart J Russell, et al.  Algorithms for invers
+e
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 211--214
+[]\OT1/cmtt/m/n/12 Peter Pirolli and Stuart Card.  Information foraging.  \OT1/
+cmtt/m/it/12 Psychological
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--221
+[]\OT1/cmtt/m/n/12 Stuart Russell, Peter Norvig, and Artificial Intelligence.  
+A modern
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
+[]\OT1/cmtt/m/n/12 Pradeep Shenoy and J Yu Angela.  Rational preference shifts 
+in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
+[]\OT1/cmtt/m/n/12 Miriam Shiffman.  Introducing variational autoencoders (in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
+\OT1/cmtt/m/n/12 prose and code).  []$http : / / blog . fastforwardlabs . com /
+ 2016 / 08 / 12 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--249
+[]\OT1/cmtt/m/n/12 Ilya Sutskever, James Martens, and Geoffrey Hinton.  Generat
+ing text
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--249
+\OT1/cmtt/m/n/12 editors, \OT1/cmtt/m/it/12 Proceedings of the 28th Internation
+al Conference on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--249
+\OT1/cmtt/m/it/12 Machine Learning (ICML-11)\OT1/cmtt/m/n/12 , ICML '11, pages 
+1017--1024, New York,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--256
+[]\OT1/cmtt/m/n/12 Ilya Sutskever, Oriol Vinyals, and Quoc V Le.  Sequence to s
+equence
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--256
+\OT1/cmtt/m/n/12 learning with neural networks.  In \OT1/cmtt/m/it/12 Advances 
+in neural information
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--271
+\OT1/cmtt/m/it/12 University Press\OT1/cmtt/m/n/12 , pages 1--388, 2003.  ISSN 
+08981221.  doi:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--271
+\OT1/cmr/m/n/12 10 . 1017 / CBO9780511753930$\OT1/cmtt/m/n/12 .  URL []$http : 
+/ / ebooks . cambridge . org / ref / id /
+ []
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 274--280
+[]\OT1/cmtt/m/n/12 Kelvin Xu, Jimmy Ba, Ryan Kiros, Kyunghyun Cho, Aaron Courvi
+lle,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--280
+\OT1/cmtt/m/n/12 Ruslan Salakhudinov, Rich Zemel, and Yoshua Bengio.  Show, att
+end
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--280
+\OT1/cmtt/m/n/12 and tell: Neural image caption generation with visual attentio
+n.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--280
+\OT1/cmtt/m/n/12 In \OT1/cmtt/m/it/12 International Conference on Machine Learn
+ing\OT1/cmtt/m/n/12 , pages 2048--2057,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--286
+\OT1/cmtt/m/n/12 Reinforcement Learning with Sparse Behavior Noise.  \OT1/cmtt/
+m/it/12 AAAI\OT1/cmtt/m/n/12 , pages
+ []
+
+)
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
+[47]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
+ (./main.aux (./dedication.aux) (./acknowledgements.aux) (./abstract.aux)
+(./chapters/intro.aux) (./chapters/data.aux) (./chapters/background.aux)
+(./chapters/vae.aux) (./chapters/predictive_models.aux) (./chapters/results.aux
+) (./chapters/conclusions.aux) (./appendix1.aux) (./appendix2.aux)
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  7018737E15A4FCA86B9DBE3409C6D840;3587.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
+ ) 
+Here is how much of TeX's memory you used:
+ 8460 strings out of 494501
+ 125774 string characters out of 6167029
+ 205166 words of memory out of 5000000
+ 11363 multiletter control sequences out of 15000+600000
+ 12360 words of font info for 46 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 36i,15n,42p,2759b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx8.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmex10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmitt10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015basic/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015basic/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015basic/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015basic/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015basic/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015basic/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015bas
+ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (51 pages, 53905638 bytes).
+PDF statistics:
+ 525 PDF objects out of 1000 (max. 8388607)
+ 409 compressed objects within 5 object streams
+ 184 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+

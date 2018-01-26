@@ -1,0 +1,74 @@
+\documentclass[12pt]{ociamthesis}
+%load any additional packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ltablex}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{svg}
+\setlength{\parindent}{0pt}
+
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\hspace{\linewidth}%
+    \textbf{Source:} #2%
+  }%
+}
+
+\usepackage{hyperref}
+% \usepackage{biblatex}
+\usepackage[round]{natbib}
+\usepackage[utf8]{inputenc}
+
+\title{Predictive Computational Models\\[1ex]     %your thesis title,
+        of Task Switching}   %note \\[1ex] is a line break in the title
+
+\author{Abdel Wahab Turkmani}             %your name
+\college{Oriel College}  %your college
+\degree{Master of Science}     %the degree
+\degreedate{Trinity 2017}         %the degree date
+
+%end the preamble and start the document
+\begin{document}
+
+%this baselineskip gives sufficient line spacing for an examiner to easily
+%markup the thesis with comments
+\baselineskip=18pt plus1pt
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{6}
+
+\maketitle                  % create a title page from the preamble info
+\include{dedication}        % include a dedication.tex file
+\include{acknowledgements}  % include an acknowledgements.tex file
+\include{abstract}          % include the abstract
+
+\begin{romanpages}          % start roman page numbering
+\tableofcontents            % generate and include a table of contents
+\listoffigures              % generate and include a list of figures
+\end{romanpages}            % end roman page numbering
+
+%now include the files of latex for each of the chapters etc
+\include{chapters/intro}
+\include{chapters/data}
+\include{chapters/background}
+\include{chapters/vae}
+\include{chapters/predictive_models}
+\include{chapters/results}
+\include{chapters/conclusions}
+
+%now enable appendix numbering format and include any appendices
+\appendix
+\include{appendix1}
+\include{appendix2}
+
+%next line adds the Bibliography to the contents page
+\bibliography{ref}        %use a bibtex bibliography file refs.bib
+\bibliographystyle{plainnat}  %use the plain bibliography style
+%uncomment next line to change bibliography name to references
+%\renewcommand{\bibname}{References}
+
+
+\end{document}

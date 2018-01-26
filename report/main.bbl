@@ -1,0 +1,287 @@
+\begin{thebibliography}{42}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ainslie(2001)]{ainslie2001breakdown}
+George Ainslie.
+\newblock \emph{Breakdown of will}.
+\newblock Cambridge University Press, 2001.
+
+\bibitem[Amato et~al.(2013)Amato, L{\'{o}}pez, Pe{\~{n}}a-m{\'{e}}ndez,
+  Vaňhara, and Hampl]{Amato2013}
+Filippo Amato, Alberto L{\'{o}}pez, Eladia~Mar{\'{i}}a Pe{\~{n}}a-m{\'{e}}ndez,
+  Petr Vaňhara, and Ale{\v{s}} Hampl.
+\newblock {Artificial neural networks in medical diagnosis}.
+\newblock pages 47--58, 2013.
+\newblock \doi{10.2478/v10136-012-0031-x}.
+
+\bibitem[Anderson and Rainie(2012)]{anderson2012millennials}
+Janna Anderson and Lee Rainie.
+\newblock Millennials will benefit and suffer due to their hyperconnected
+  lives.
+\newblock \emph{Washington DC, Pew Research Center}, pages 18--19, 2012.
+
+\bibitem[Bahdanau et~al.(2014)Bahdanau, Cho, and Bengio]{bahdanau2014neural}
+Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio.
+\newblock Neural machine translation by jointly learning to align and
+  translate.
+\newblock \emph{arXiv preprint arXiv:1409.0473}, 2014.
+
+\bibitem[Baker and Tenenbaum(2014)]{baker2014modeling}
+Chris~L Baker and Joshua~B Tenenbaum.
+\newblock Modeling human plan recognition using bayesian theory of mind.
+\newblock \emph{Plan, activity, and intent recognition: Theory and practice},
+  pages 177--204, 2014.
+
+\bibitem[Baker et~al.(2009)Baker, Saxe, and Tenenbaum]{baker2009action}
+Chris~L Baker, Rebecca Saxe, and Joshua~B Tenenbaum.
+\newblock Action understanding as inverse planning.
+\newblock \emph{Cognition}, 113\penalty0 (3):\penalty0 329--349, 2009.
+
+\bibitem[Bernal et~al.(2012)Bernal, Fok, and Pidaparthi]{bernal2012financial}
+Armando Bernal, Sam Fok, and Rohit Pidaparthi.
+\newblock Financial market time series prediction with recurrent neural
+  networks, 2012.
+
+\bibitem[Busemeyer and Johnson(2005)]{Busemeyer2005}
+Jerome~R Busemeyer and Joseph~G Johnson.
+\newblock {Micro-process Models of Decision Making}.
+\newblock \emph{Brand}, 2:\penalty0 1--39, 2005.
+\newblock ISSN 01635182.
+\newblock URL
+  \url{http://neuroeconomics-summerschool.stanford.edu/pdf/BUSEMEYER2.pdf}.
+
+\bibitem[Chan et~al.(2015)Chan, Jaitly, Le, and Vinyals]{chan2015listen}
+William Chan, Navdeep Jaitly, Quoc~V Le, and Oriol Vinyals.
+\newblock Listen, attend and spell.
+\newblock \emph{arXiv preprint arXiv:1508.01211}, 2015.
+
+\bibitem[Cho et~al.(2014)Cho, van Merrienboer, Gulcehre, Bahdanau, Bougares,
+  Schwenk, and Bengio]{Cho2014}
+Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Dzmitry Bahdanau, Fethi
+  Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock {Learning Phrase Representations using RNN Encoder-Decoder for
+  Statistical Machine Translation}.
+\newblock \emph{Proceedings of the 2014 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 1724--1734, 2014.
+\newblock ISSN 09205691.
+\newblock \doi{10.3115/v1/D14-1179}.
+\newblock URL \url{http://arxiv.org/abs/1406.1078}.
+
+\bibitem[Clevert et~al.(2015)Clevert, Unterthiner, and
+  Hochreiter]{clevert2015fast}
+Djork-Arn{\'e} Clevert, Thomas Unterthiner, and Sepp Hochreiter.
+\newblock Fast and accurate deep network learning by exponential linear units
+  (elus).
+\newblock \emph{arXiv preprint arXiv:1511.07289}, 2015.
+
+\bibitem[Commons(2010)]{reg}
+Wikimedia Commons.
+\newblock Linear regression, 2010.
+\newblock URL
+  \url{https://en.wikipedia.org/wiki/Regression_analysis#/media/File:Linear_regression.svg}.
+\newblock File: \ttfamily{Linear_regression.svg}.
+
+\bibitem[Davenport and Beck(2013)]{davenport2013attention}
+Thomas~H Davenport and John~C Beck.
+\newblock \emph{The attention economy: Understanding the new currency of
+  business}.
+\newblock Harvard Business Press, 2013.
+
+\bibitem[Doersch(2016)]{doersch2016tutorial}
+Carl Doersch.
+\newblock Tutorial on variational autoencoders.
+\newblock \emph{arXiv preprint arXiv:1606.05908}, 2016.
+
+\bibitem[Donahue et~al.(2015)Donahue, Anne~Hendricks, Guadarrama, Rohrbach,
+  Venugopalan, Saenko, and Darrell]{donahue2015long}
+Jeffrey Donahue, Lisa Anne~Hendricks, Sergio Guadarrama, Marcus Rohrbach,
+  Subhashini Venugopalan, Kate Saenko, and Trevor Darrell.
+\newblock Long-term recurrent convolutional networks for visual recognition and
+  description.
+\newblock In \emph{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 2625--2634, 2015.
+
+\bibitem[Evans et~al.(2015)Evans, Stuhlm{\"{u}}ller, and Goodman]{Evans2015}
+Owain Evans, Andreas Stuhlm{\"{u}}ller, and Noah~D Goodman.
+\newblock {Learning the preferences of bounded agents}.
+\newblock \emph{NIPS Workshop on Bounded Optimality}, pages 16--22, 2015.
+\newblock URL
+  \url{http://web.mit.edu/owain/www/nips-workshop-2015-website.pdf}.
+
+\bibitem[Gamboa(2017)]{gamboa2017deep}
+John Cristian~Borges Gamboa.
+\newblock Deep learning for time-series analysis.
+\newblock \emph{arXiv preprint arXiv:1701.01887}, 2017.
+
+\bibitem[Gehring et~al.(2017)Gehring, Auli, Grangier, Yarats, and
+  Dauphin]{gehring2017convolutional}
+Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, and Yann~N Dauphin.
+\newblock Convolutional sequence to sequence learning.
+\newblock \emph{arXiv preprint arXiv:1705.03122}, 2017.
+
+\bibitem[Goodfellow et~al.(2014)Goodfellow, Pouget-Abadie, Mirza, Xu,
+  Warde-Farley, Ozair, Courville, and Bengio]{goodfellow2014generative}
+Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley,
+  Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
+\newblock Generative adversarial nets.
+\newblock In \emph{Advances in neural information processing systems}, pages
+  2672--2680, 2014.
+
+\bibitem[Goodfellow et~al.(2016)Goodfellow, Bengio, and
+  Courville]{Goodfellow-et-al-2016}
+Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
+\newblock \emph{Deep Learning}.
+\newblock MIT Press, 2016.
+\newblock \url{http://www.deeplearningbook.org}.
+
+\bibitem[Hochreiter and Schmidhuber(1997)]{Hochreiter1997}
+Sepp Hochreiter and Jurgen~J{\"{u}}rgen Schmidhuber.
+\newblock {Long short-term memory}.
+\newblock \emph{Neural Computation}, 9\penalty0 (8):\penalty0 1--32, 1997.
+\newblock ISSN 0899-7667.
+\newblock \doi{10.1162/neco.1997.9.8.1735}.
+\newblock URL
+  \url{http://www.mitpressjournals.org/doi/abs/10.1162/neco.1997.9.8.1735{\%}5Cnfile:///Files/F0/F0267A41-D807-4137-A5AC-8D9A84E9E12C.pdf{\%}5Cnpapers3://publication/doi/10.1162/neco.1997.9.8.1735{\%}5Cnfile:///Files/B1/B10E2649-D486-4D93-B71B-80023681156B.pdf}.
+
+\bibitem[Jang(2016)]{eric_jang}
+Eric Jang.
+\newblock A beginner's guide to variational methods: Mean-field approximation.
+\newblock \url={http://blog.evjang.com/2016/08/}, Aug 2016.
+
+\bibitem[Jern et~al.(2017)Jern, Lucas, and Kemp]{Jern2017}
+Alan Jern, Christopher~G Lucas, and Charles Kemp.
+\newblock \emph{{People learn other people's preferences through inverse
+  decision-making}}.
+\newblock PhD thesis, Rose-Hulman Institute of Technology, 2017.
+
+\bibitem[Kahneman and Tversky(1979)]{Kahneman1979}
+D~Kahneman and A~Tversky.
+\newblock {Prospect theory - Analysis of decision under risk}, 1979.
+\newblock ISSN 0012-9682.
+
+\bibitem[Kim et~al.(2014)Kim, Breslin, Tsiakoulis, Ga{\v{s}}i{\'{c}},
+  Henderson, and Young]{Kim2014}
+Dongho Kim, Catherine Breslin, Pirros Tsiakoulis, Milica Ga{\v{s}}i{\'{c}},
+  Matthew Henderson, and Steve Young.
+\newblock {Inverse reinforcement learning for micro-turn management}.
+\newblock \emph{Proceedings of the Annual Conference of the International
+  Speech Communication Association, INTERSPEECH}, \penalty0
+  (September):\penalty0 328--332, 2014.
+\newblock ISSN 19909772.
+
+\bibitem[Kingma and Welling(2013)]{kingma2013auto}
+Diederik~P Kingma and Max Welling.
+\newblock Auto-encoding variational bayes.
+\newblock \emph{arXiv preprint arXiv:1312.6114}, 2013.
+
+\bibitem[Lyngs(2017)]{Lyngs}
+Ulrik Lyngs.
+\newblock \emph{{The Distracted Mind : Challenges and Opportunities for
+  Attention Management in the Digital Age}}.
+\newblock PhD thesis, University of Oxford, 2017.
+
+\bibitem[Mikolov et~al.(2010)Mikolov, Karafi{\'a}t, Burget, Cernock{\`y}, and
+  Khudanpur]{mikolov2010recurrent}
+Tomas Mikolov, Martin Karafi{\'a}t, Lukas Burget, Jan Cernock{\`y}, and Sanjeev
+  Khudanpur.
+\newblock Recurrent neural network based language model.
+\newblock In \emph{Interspeech}, volume~2, page~3, 2010.
+
+\bibitem[Murphy(2012)]{murphy2012machine}
+Kevin~P Murphy.
+\newblock \emph{Machine learning: a probabilistic perspective}.
+\newblock MIT press, 2012.
+
+\bibitem[Nair and Hinton(2010)]{nair2010rectified}
+Vinod Nair and Geoffrey~E Hinton.
+\newblock Rectified linear units improve restricted boltzmann machines.
+\newblock In \emph{Proceedings of the 27th international conference on machine
+  learning (ICML-10)}, pages 807--814, 2010.
+
+\bibitem[Ng et~al.(2000)Ng, Russell, et~al.]{ng2000algorithms}
+Andrew~Y Ng, Stuart~J Russell, et~al.
+\newblock Algorithms for inverse reinforcement learning.
+\newblock In \emph{Icml}, pages 663--670, 2000.
+
+\bibitem[Pirolli and Card(1999)]{pirolli1999information}
+Peter Pirolli and Stuart Card.
+\newblock Information foraging.
+\newblock \emph{Psychological review}, 106\penalty0 (4):\penalty0 643, 1999.
+
+\bibitem[Russell et~al.(1995)Russell, Norvig, and
+  Intelligence]{russell1995modern}
+Stuart Russell, Peter Norvig, and Artificial Intelligence.
+\newblock A modern approach.
+\newblock \emph{Artificial Intelligence. Prentice-Hall, Egnlewood Cliffs},
+  25:\penalty0 27, 1995.
+
+\bibitem[Shenoy and Angela(2013)]{shenoy2013rational}
+Pradeep Shenoy and J~Yu Angela.
+\newblock Rational preference shifts in multi-attribute choice: What is fair?
+\newblock In \emph{CogSci}, 2013.
+
+\bibitem[Shiffman(2016)]{_lorenz_}
+Miriam Shiffman.
+\newblock Introducing variational autoencoders (in prose and code).
+\newblock
+  \url{http://blog.fastforwardlabs.com/2016/08/12/introducing-variational-autoencoders-in-prose-and.html},
+  2016.
+
+\bibitem[Sohn et~al.(2015)Sohn, Lee, and Yan]{sohn2015learning}
+Kihyuk Sohn, Honglak Lee, and Xinchen Yan.
+\newblock Learning structured output representation using deep conditional
+  generative models.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pages
+  3483--3491, 2015.
+
+\bibitem[Sutskever et~al.(2011)Sutskever, Martens, and
+  Hinton]{ICML2011Sutskever_524}
+Ilya Sutskever, James Martens, and Geoffrey Hinton.
+\newblock Generating text with recurrent neural networks.
+\newblock In Lise Getoor and Tobias Scheffer, editors, \emph{Proceedings of the
+  28th International Conference on Machine Learning (ICML-11)}, ICML '11, pages
+  1017--1024, New York, NY, USA, June 2011. ACM.
+\newblock ISBN 978-1-4503-0619-5.
+
+\bibitem[Sutskever et~al.(2014)Sutskever, Vinyals, and
+  Le]{sutskever2014sequence}
+Ilya Sutskever, Oriol Vinyals, and Quoc~V Le.
+\newblock Sequence to sequence learning with neural networks.
+\newblock In \emph{Advances in neural information processing systems}, pages
+  3104--3112, 2014.
+
+\bibitem[Szenberg et~al.(2009)Szenberg, Ramrattan, and Gottesman]{Szenberg2009}
+Michael Szenberg, Lall Ramrattan, and Aron~A. Gottesman.
+\newblock \emph{{Samuelsonian Economics and the Twenty-First Century}}.
+\newblock 2009.
+\newblock ISBN 9780191711480.
+\newblock \doi{10.1093/acprof:oso/9780199298839.001.0001}.
+
+\bibitem[Train(2003)]{Train2003}
+Kenneth~E. Train.
+\newblock {Discrete Choice Methods with Simulation}.
+\newblock \emph{Cambridge University Press}, pages 1--388, 2003.
+\newblock ISSN 08981221.
+\newblock \doi{10.1017/CBO9780511753930}.
+\newblock URL \url{http://ebooks.cambridge.org/ref/id/CBO9780511753930}.
+
+\bibitem[Xu et~al.(2015)Xu, Ba, Kiros, Cho, Courville, Salakhudinov, Zemel, and
+  Bengio]{xu2015show}
+Kelvin Xu, Jimmy Ba, Ryan Kiros, Kyunghyun Cho, Aaron Courville, Ruslan
+  Salakhudinov, Rich Zemel, and Yoshua Bengio.
+\newblock Show, attend and tell: Neural image caption generation with visual
+  attention.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  2048--2057, 2015.
+
+\bibitem[Zheng et~al.(2014)Zheng, Liu, and Ni]{Zheng2014}
+Jiangchuan Zheng, Siyuan Liu, and Lionel~M Ni.
+\newblock {Robust Bayesian Inverse Reinforcement Learning with Sparse Behavior
+  Noise}.
+\newblock \emph{AAAI}, pages 2198--2205, 2014.
+
+\end{thebibliography}
